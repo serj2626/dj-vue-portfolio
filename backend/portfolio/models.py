@@ -28,10 +28,8 @@ class Experience(models.Model):
     company = models.CharField(max_length=100, verbose_name='Компания')
     responsibilities = CKEditor5Field(
         verbose_name="Обязанности", config_name="extends")
-    date_start = models.DateField(
-        auto_now_add=True, verbose_name='Дата начала')
-    date_end = models.DateField(auto_now=True,
-                                verbose_name='Дата окончания', null=True, blank=True)
+    date_start = models.DateField(verbose_name='Дата начала')
+    date_end = models.DateField(verbose_name='Дата окончания', null=True, blank=True)
 
     class Meta:
         verbose_name = 'Опыт работы'
