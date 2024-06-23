@@ -3,21 +3,10 @@ from django_ckeditor_5.fields import CKEditor5Field
 from pytils.translit import slugify
 
 
-class GenericModel(models.Model):
-    slug = models.SlugField(max_length=100, null=True,
-                            unique=True, verbose_name='URL')
-
-    def save(self, *args, **kwargs):
-        self.slug = self.slug or slugify(self.title)
-        super().save(*args, **kwargs)
-
-    class Meta:
-        abstract = True
-
-
-class Course(GenericModel):
+class Course(models.Model):
     title = models.CharField(max_length=100, verbose_name='Название курса')
-    company = models.CharField(max_length=100, verbose_name='Учебное заведение')
+    company = models.CharField(
+        max_length=100, verbose_name='Учебное заведение')
     description = CKEditor5Field(
         verbose_name="Описание курса", config_name="extends")
     date_start = models.DateField(
@@ -32,7 +21,8 @@ class Course(GenericModel):
     def __str__(self):
         return f'Курс: {self.title}'
 
-class Experience(GenericModel):
+
+class Experience(models.Model):
     vacancy_title = models.CharField(
         max_length=100, verbose_name='Название вакансии')
     company = models.CharField(max_length=100, verbose_name='Компания')
@@ -50,7 +40,8 @@ class Experience(GenericModel):
     def __str__(self):
         return f'Опыт работы: {self.vacancy_title}'
 
-class Skill(GenericModel):
+
+class Skill(models.Model):
     title = models.CharField(max_length=100, verbose_name='Название')
 
     class Meta:
@@ -61,9 +52,10 @@ class Skill(GenericModel):
         return self.title
 
 
-class Stack(GenericModel):
+class Stack(models.Model):
     title = models.CharField(max_length=100, verbose_name='Название стека')
-    
+    slug = models.SlugField(max_length=100, null=True,
+                            unique=True, verbose_name='слаг')
     class Meta:
         verbose_name = 'Стек'
         verbose_name_plural = 'Стеки'
@@ -72,7 +64,7 @@ class Stack(GenericModel):
         return self.title
 
 
-class Project(GenericModel):
+class Project(models.Model):
     title = models.CharField(max_length=100, verbose_name='Название проекта')
     description = CKEditor5Field(
         verbose_name="Описание проекта", config_name="extends")
@@ -81,6 +73,13 @@ class Project(GenericModel):
         upload_to='portfolio/projects', null=True, verbose_name='Аватар проекта')
     url = models.URLField(verbose_name='Ссылка на проект',
                           null=True, blank=True)
+
+    slug = models.SlugField(max_length=100, null=True,
+                            unique=True, verbose_name='URL')
+
+    def save(self, *args, **kwargs):
+        self.slug = self.slug or slugify(self.title)
+        super().save(*args, **kwargs)
 
     class Meta:
         verbose_name = 'Проект'
