@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from .serializers import StackSerializer
+from .models import Stack
+from rest_framework import generics
 
-# Create your views here.
+
+class StackListView(generics.ListAPIView):
+    queryset = Stack.objects.all()
+    serializer_class = StackSerializer

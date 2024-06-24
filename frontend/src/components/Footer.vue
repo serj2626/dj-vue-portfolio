@@ -19,6 +19,6 @@
 
 <style scoped>
 .border-footer {
-  border-top: 1px solid #03e9f4;
+  /* border-top: 1px solid #03e9f4; */
 }
 </style>

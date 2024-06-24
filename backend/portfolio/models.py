@@ -29,7 +29,8 @@ class Experience(models.Model):
     responsibilities = CKEditor5Field(
         verbose_name="Обязанности", config_name="extends")
     date_start = models.DateField(verbose_name='Дата начала')
-    date_end = models.DateField(verbose_name='Дата окончания', null=True, blank=True)
+    date_end = models.DateField(
+        verbose_name='Дата окончания', null=True, blank=True)
 
     class Meta:
         verbose_name = 'Опыт работы'
@@ -52,8 +53,11 @@ class Skill(models.Model):
 
 class Stack(models.Model):
     title = models.CharField(max_length=100, verbose_name='Название стека')
+    img = models.ImageField(upload_to='portfolio/stacks',
+                            null=True, verbose_name='Аватар стека')
     slug = models.SlugField(max_length=100, null=True,
                             unique=True, verbose_name='слаг')
+
     class Meta:
         verbose_name = 'Стек'
         verbose_name_plural = 'Стеки'
