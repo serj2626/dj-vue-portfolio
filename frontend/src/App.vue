@@ -24,7 +24,8 @@ import Footer from './components/Footer.vue';
 <style scoped>
 .app {
   min-height: 100vh;
-  background-color: #2c3136;
+  /* background-color: #2c3136; */
+  background-color: #1b1e20;
 }
 footer{
   position: absolute;

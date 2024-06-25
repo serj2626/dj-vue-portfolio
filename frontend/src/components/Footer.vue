@@ -19,6 +19,23 @@
 
 <style scoped>
 .border-footer {
+  animation-name: border1;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  
   /* border-top: 1px solid #03e9f4; */
+}
+
+@keyframes border1 {
+  0% {
+    border-top: 1px solid #9fecf0;
+  }
+  50% {
+    border-top: 1px solid #48e1ea;
+  }
+  100% {
+    border-top: 1px solid #03e9f4;
+  }
 }
 </style>

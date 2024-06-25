@@ -1,43 +1,49 @@
 <script setup>
-import axios from "axios";
-import { onMounted, ref } from "vue";
-
-const stacks = ref([]);
-const getStacks = async () => {
-  const response = await axios.get("/api/stacks/");
-  console.log(response.data);
-  stacks.value = response.data;
-};
-onMounted(() => getStacks());
 </script>
 <template>
-  <div class="home text-center text">
-    <p>
-      Привет! Я Сергей Бойцов.<br />
-      Начинающий fullstack разработчик.
-    </p>
-<!-- 
-    <div v-for="stack in stacks" :key="stack.id" class="col">
-      <p class="text-center text">{{ stack.title }}</p>
-    </div> -->
-  </div>
-
-  <div class="container">
-    <div class="row"></div>
+  <div class="container my-5">
+    <div class="row">
+      <div class="d-flex justify-content-around">
+        <div class="text-center text pt-2">
+          <p>
+            Привет! Я Сергей Бойцов.<br />
+            Начинающий fullstack разработчик.
+          </p>
+          <p>На этом сайте представлены мои пет-проекты,
+            статьи и вся контактная информация.
+          </p>
+        </div>
+        <div>
+          <img width="500" height="auto" src="/avatar.png" alt="">
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <style scoped>
-.home {
-  width: 100%;
-  min-height: 50vh;
-  background: linear-gradient(90deg, #2c3136, #03e9f4);
+img{
+  filter: brightness(1.2);
 }
-
 .text {
   font-size: 2rem;
-  color: #690175;
+  color: #f8fafa;
   text-shadow: 0 0 5px #03e9f4;
-  animation: animate 1.5s linear infinite;
+  animation: animate 1.5s linear infinite alternate;
+}
+
+@keyframes animate {
+  0% {
+    color: #9fa2a0;
+    text-shadow: 0 0 5px #03e9f4;
+  }
+  50% {
+    color: #03e9f4;
+    text-shadow: 0 0 10px #03e9f4;
+  }
+  100% {
+    color: #9fa2a0;
+    text-shadow: 0 0 5px #03e9f4;
+  }
 }
 </style>

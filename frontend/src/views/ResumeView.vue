@@ -5,7 +5,6 @@ import myInfo from "../components/resume/myInfo.vue";
 import experienceList from "../components/resume/experienceList.vue";
 // import coursesList from "../components/resume/coursesList.vue";
 import skillList from "../components/resume/skillList.vue";
-import stackList from "../components/resume/stackList.vue";
 import aboutMe from "../components/resume/aboutMe.vue";
 
 const showInfo = ref(null);
@@ -60,7 +59,6 @@ onMounted(() => getResume());
         <div class="d-flex flex-column justify-content-around align-items-center">
           <img class="rounded-4" :src="user.avatar" alt="avatar" />
           <div class="d-flex">
-            <button @click="addShowInfo(4)" class="link">Стек</button>
             <button @click="addShowInfo(3)" class="link">Навыки</button>
             <button @click="addShowInfo(2)" class="link">Опыт работы</button>
             <button @click="addShowInfo(1)" class="link">О себе</button>
@@ -71,7 +69,6 @@ onMounted(() => getResume());
         <aboutMe v-if="showInfo === 1" :about="about" />
         <experienceList v-else-if="showInfo === 2" :experience="experience" />
         <skillList v-else-if="showInfo === 3" :skills="skills" />
-        <stackList v-else-if="showInfo === 4" :stacks="stacks" />
         <myInfo v-else :user="user" />
       </div>
     </div>
