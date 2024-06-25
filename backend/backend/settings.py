@@ -5,7 +5,6 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-
 SECRET_KEY = 'django-insecure-=%5=#0@55#dept-t!2*nboia7z4t+#ibg3)uown51#0vy#cg@*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -148,7 +147,6 @@ customColorPalette = [
     {"color": "hsl(231, 48%, 48%)", "label": "Indigo"},
     {"color": "hsl(207, 90%, 54%)", "label": "Blue"},
 ]
-
 
 
 CKEDITOR_5_CONFIGS = {
@@ -297,7 +295,8 @@ CKEDITOR_5_CONFIGS = {
         },
         "htmlSupport": {
             "allow": [
-                {"name": "/.*/", "attributes": True, "classes": True, "styles": True}
+                {"name": "/.*/", "attributes": True,
+                    "classes": True, "styles": True}
             ]
         },
     },

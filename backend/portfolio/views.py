@@ -1,8 +1,15 @@
-from .serializers import StackSerializer
-from .models import Stack
+from .serializers import StackSerializer, ResumeSerializer
+from .models import Stack, Resume
 from rest_framework import generics
-
-
+from rest_framework.views import APIView
+from rest_framework.response import Response
 class StackListView(generics.ListAPIView):
     queryset = Stack.objects.all()
     serializer_class = StackSerializer
+
+class ResumeView(APIView):
+    def get(self, request):
+        queryset = Resume.objects.all().first()
+        serializer = ResumeSerializer(queryset)
+        
+        return Response(serializer.data)

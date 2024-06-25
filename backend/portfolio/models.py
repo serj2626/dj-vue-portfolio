@@ -54,7 +54,11 @@ class Skill(models.Model):
 class Stack(models.Model):
     title = models.CharField(max_length=100, verbose_name='Название стека')
     img = models.ImageField(upload_to='portfolio/stacks',
-                            null=True, verbose_name='Аватар стека')
+                            null=True,blank=True, verbose_name='Аватар стека')
+    level = models.SmallIntegerField(
+        verbose_name='Уровень владения стеком',
+        null=True
+    )
     slug = models.SlugField(max_length=100, null=True,
                             unique=True, verbose_name='слаг')
 
@@ -113,6 +117,12 @@ class Resume(models.Model):
         verbose_name='Ссылка на GitHub', null=True, blank=True)
     avatar = models.ImageField(
         upload_to='portfolio/resumes', null=True, verbose_name='Аватар резюме')
+
+    def get_avatar(self):
+        if self.avatar:
+            return 'http://127.0.0.1:8000' + self.avatar.url
+        else:
+            return ''
 
     class Meta:
         verbose_name = 'Резюме'
