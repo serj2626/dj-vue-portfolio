@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     # local apps
     'contacts',
     'portfolio',
+    'posts',
 
     # 3rd party
     'rest_framework',
