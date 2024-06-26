@@ -2,9 +2,7 @@
 import axios from "axios";
 import { reactive } from "vue";
 import { useToast } from "vue-toastification";
-import { useRouter } from "vue-router";
 
-const router = useRouter();
 const toast = useToast();
 
 const form = reactive({
@@ -13,18 +11,36 @@ const form = reactive({
   message: "",
 });
 
+const validateForm = () => {
+  if (!form.name || !form.email || !form.message) {
+    toast.error("Заполните все поля");
+    return false;
+  }
+  return true;
+}
+
 const submit = async () => {
-  await axios.post("api/contacts/create/", { ...form });
+  if (validateForm()) {
+    try{
+      await axios.post("api/contacts/create/", { ...form });
+      toast.success("Сообщение успешно отправлено");
+      form.name = "";
+      form.email = "";
+      form.message = "";
+    }catch{
+      toast.error("Что-то пошло не так");
+    }
+    
+  }
 };
 </script>
 
 <template>
-  <div></div>
   <div
     class="col-md-4 mx-auto text-white position-absolute top-50 start-50 translate-middle"
   >
     <p class="text-center mb-5 title">Связаться с мной</p>
-    <form @submit="submit" method="post">
+    <form @submit.prevent="submit" method="post">
       <div class="mb-3">
         <label for="name" class="form-label">Имя</label>
         <input
