@@ -2,6 +2,7 @@
 import axios from "axios";
 import { onMounted, ref } from "vue";
 import Progress from "../components/Progress.vue";
+import CircleProgress from "@/components/CircleProgress.vue";
 
 const stacks = ref([]);
 
@@ -16,10 +17,12 @@ onMounted(() => {
 });
 </script>
 <template>
-  <div class="container py-5">
+  <div class="container py-1">
+
     <div class="row">
-      <div class="d-flex justify-content-around">
-        <div class="text-center text pt-5">
+      <div class="info">
+        <div class="d-flex justify-content-around">
+        <div class="text-center text">
           <p>
             Привет! Я Сергей Бойцов.<br />
             Начинающий fullstack разработчик.
@@ -33,25 +36,34 @@ onMounted(() => {
           <img width="500" height="auto" src="/avatar.png" alt="" />
         </div>
       </div>
+      </div>
+      
     </div>
+
     <div class="row">
-      <p class="fs-1 title text-center my-3">Используемый стек</p>
+      <p class="fs-1 title text-center my-3">Инструменты</p>
       <div class="stack col-2" v-for="stack in stacks" :key="stack.id">
-        <img class="logo-stack" :src="stack.img" :alt="stack.title" :title="stack.title" />
+        <img
+          class="logo-stack"
+          :src="stack.img"
+          :alt="stack.title"
+          :title="stack.title"
+        />
       </div>
     </div>
 
     <div class="row">
-      <p class="fs-1 title text-center">Статистика</p>
       <div class="d-flex justify-content-around text-white">
-        <div class="d-flex flex-column w-50">
+        <div class="d-flex flex-column w-50 text-center">
+          <p class="fs-1 title">Знание стека</p>
           <div class="progress_bar" v-for="stack in stacks" :key="stack.id">
             <Progress :title="stack.title" :progress="stack.level" />
           </div>
         </div>
-        <div class="w-50 ml-2 position-relative">
+        <div class="w-50 ml-2 position-relative text-center">
+       <p class="fs-1 title">Статистика</p>         
           <div class="circle">
-
+            <CircleProgress />
           </div>
         </div>
       </div>
@@ -60,15 +72,16 @@ onMounted(() => {
 </template>
 
 <style scoped>
+.info{
+  padding-block: 50px;
+  border: none;
+  border-radius: 20px;
+  background-color: #23272a;
+}
 .circle {
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background-color: #03e9f4;
   position: absolute;
   right: 20%;
   top: 10%;
-
 }
 .row {
   margin-block: 90px;

@@ -1,55 +1,64 @@
 <script setup>
 const props = defineProps({
-    title: String,
-    progress: Number,
+  title: String,
+  progress: Number,
 });
-const color = (props.progress < 50) ? 'red' : (props.progress < 50) ? 'green' : (props.progress < 75) ? 'orange' : 'yellow';
+const color =
+  props.progress < 50
+    ? "red"
+    : props.progress < 50
+    ? "green"
+    : props.progress < 75
+    ? "orange"
+    : "yellow";
 
 const style = {
-    "width": `${props.progress}%`,
-    "background-color": color
-}
+  width: `${props.progress}%`,
+  "background-color": color,
+};
 const colorText = {
-    color
-}
+  color,
+};
 </script>
 
 <template>
-        <div class="pro-bar">
-            <small class="progress_bar_title" :style="colorText">
-                {{ props.title }}
-                <span class="progress_number">{{ props.progress }}%</span>
-            </small>
-            <span class="progress-bar-inner" :style="style" :data-value="props.progress"
-                :data-percentage-value="props.progress"></span>
-        </div>
+  <div class="pro-bar">
+    <small class="progress_bar_title" :style="colorText">
+      {{ props.title }}
+      <span class="progress_number">{{ props.progress }}%</span>
+    </small>
+    <span
+      class="progress-bar-inner"
+      :style="style"
+      :data-value="props.progress"
+      :data-percentage-value="props.progress"
+    ></span>
+  </div>
 </template>
 
-<style >
+<style>
 .progress_bar .pro-bar {
     background: hsl(0, 0%, 97%);
     box-shadow: 0 1px 2px hsla(0, 0%, 0%, 0.1) inset;
-    height: 4px;
+    height:4px;
     margin-bottom: 12px;
     margin-top: 50px;
     position: relative;
 }
-
-.progress_bar .progress_bar_title {
+.progress_bar .progress_bar_title{
+    color: hsl(218, 4%, 50%);
     font-size: 15px;
     font-weight: 300;
     position: relative;
     top: -28px;
     z-index: 1;
 }
-
-.progress_bar .progress_number {
+.progress_bar .progress_number{
     float: right;
-  
+    margin-top: -24px;
 }
-
 .progress_bar .progress-bar-inner {
-
+    background-color: hsl(0, 0%, 88%);
     display: block;
     width: 0;
     height: 100%;
@@ -58,9 +67,9 @@ const colorText = {
     left: 0;
     transition: width 1s linear 0s;
 }
-
 .progress_bar .progress-bar-inner:before {
     content: "";
+    background-color: hsl(0, 0%, 100%);
     border-radius: 50%;
     width: 4px;
     height: 4px;
@@ -69,7 +78,6 @@ const colorText = {
     top: 0;
     z-index: 1;
 }
-
 .progress_bar .progress-bar-inner:after {
     content: "";
     width: 14px;
