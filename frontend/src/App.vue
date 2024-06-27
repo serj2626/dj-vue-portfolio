@@ -4,16 +4,6 @@ import Navigation from './components/Navigation.vue'
 import Footer from './components/Footer.vue';
 import { useDark, useToggle } from '@vueuse/core';
 
-
-const isDark = useDark({
-  selector: 'body',
-  attribute: 'color-scheme',
-  valueDark: 'dark',
-  valueLight: 'light',
-});
-const toggleDark = useToggle(isDark);
-
-console.log("isDark", isDark);
 </script>
 
 <template>

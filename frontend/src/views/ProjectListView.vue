@@ -3,66 +3,90 @@ import axios from "axios";
 import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
 
-const router = useRouter();
-const stacks = ref([]);
-const projects = ref([]);
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/css";
+import { EffectCoverflow, Pagination } from "swiper/modules";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
 
-const getStacks = async () => {
-  const response = await axios.get("/api/stacks/");
-  console.log(response.data);
-  stacks.value = response.data;
-};
+const modules = [EffectCoverflow, Pagination];
+
+const router = useRouter();
+const projects = ref([]);
 
 const getProjects = async () => {
   const response = await axios.get("/api/projects/");
-  console.log(response.data);
   projects.value = response.data;
 };
 
 onMounted(() => {
-  getStacks();
   getProjects();
 });
 </script>
 
 <template>
-  <div class="container py-5">
-    <div class="row">
-      <p class="fs-1 title text-center my-5">Проекты</p>
-      <div class="col-4" v-for="project in projects" :key="project.id">
-        <div
-        @click="router.push({ name: 'project', params: { slug: project.slug } })"
-        class="card" style="width: 26rem; height: 25rem">
-          <img
-            :src="project.avatar"
-            class="card-img-top h-75"
-            :alt="project.title"
-            :title="project.title"
-          />
-          <div class="card-body">
-            <h5 class="card-title">{{ project.title }}</h5>
-          </div>
+  <swiper
+    :effect="'coverflow'"
+    :grabCursor="true"
+    :centeredSlides="true"
+    :slidesPerView="'auto'"
+    :coverflowEffect="{
+      rotate: 50,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: true,
+    }"
+    :pagination="false"
+    :modules="modules"
+    class="mySwiper"
+  >
+    <swiper-slide v-for="project in projects" :key="project.id">
+      <div
+        @click="
+          router.push({ name: 'project', params: { slug: project.slug } })
+        "
+        class="card"
+      >
+        <img
+          :src="project.avatar"
+          class="card-img-top"
+          :alt="project.title"
+          :title="project.title"
+        />
+        <div class="card-body">
+          <h5 class="card-title text-center">{{ project.title }}</h5>
         </div>
       </div>
-    </div>
-  </div>
+    </swiper-slide>
+  </swiper>
 </template>
 
 <style scoped>
+.swiper {
+  width: 100%;
+  padding-top: 150px;
+  padding-bottom: 150px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 600px;
+  height: 500px;
+}
+.card {
+  width: 600px;
+  height: 500px;
+}
+.swiper-slide img {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
 
 .title {
   color: #03e9f4;
   text-shadow: 0 0 2px wheat;
-}
-
-.card {
-  cursor: pointer;
-  overflow: hidden;
-  transition: 0.5s all ease-in-out;
-
-
-  &:hover {
-    transform: scale(1.1);
-  }
 }
 </style>
