@@ -25,6 +25,12 @@ const router = createRouter({
       component: () => import('../views/ProjectListView.vue')
     },
     {
+      path: '/projects/:slug',
+      name: 'project',
+      component: () => import('../views/ProjectDetailView.vue.vue'),
+      props: true
+    },
+    {
       path: '/posts',
       name: 'posts',
       component: () => import('../views/PostListView.vue')

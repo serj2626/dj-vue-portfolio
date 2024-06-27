@@ -6,7 +6,7 @@ from .models import Course, Experience, Project, Resume, Skill, Stack
 class ProjectAdmin(admin.ModelAdmin):
     '''Admin View for Project)'''
 
-    list_display = ('title',)
+    list_display = ('title','slug', )
 
 
 @admin.register(Resume)

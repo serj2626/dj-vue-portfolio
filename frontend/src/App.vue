@@ -28,10 +28,10 @@ import Footer from './components/Footer.vue';
   background-color: #1b1e20;
 }
 footer{
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 80px;
+  /* position: absolute;
+  bottom: 0; */
+  /* width: 100%;
+  height: 80px; */
 
 }
 

@@ -1,7 +1,9 @@
 <script setup>
 import axios from "axios";
 import { onMounted, ref } from "vue";
+import { useRouter } from "vue-router";
 
+const router = useRouter();
 const stacks = ref([]);
 const projects = ref([]);
 
@@ -26,20 +28,11 @@ onMounted(() => {
 <template>
   <div class="container py-5">
     <div class="row">
-      <p class="fs-1 title text-center my-3">Используемый стек</p>
-      <div class="stack col-2" v-for="stack in stacks" :key="stack.id">
-        <img
-          class="logo-stack"
-          :src="stack.img"
-          :alt="stack.title"
-          :title="stack.title"
-        />
-      </div>
-    </div>
-    <div class="row">
       <p class="fs-1 title text-center my-5">Проекты</p>
       <div class="col-4" v-for="project in projects" :key="project.id">
-        <div class="card" style="width: 26rem; height: 25rem">
+        <div
+        @click="router.push({ name: 'project', params: { slug: project.slug } })"
+        class="card" style="width: 26rem; height: 25rem">
           <img
             :src="project.avatar"
             class="card-img-top h-75"
@@ -56,20 +49,6 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.stack {
-  margin-block: 20px;
-}
-
-.logo-stack {
-  width: 80px;
-  height: 80px;
-  cursor: pointer;
-  transition: 0.5s;
-
-  &:hover {
-    transform: scale(1.1);
-  }
-}
 
 .title {
   color: #03e9f4;
