@@ -19,7 +19,11 @@ class ResumeView(APIView):
 
 
 class ProjectListView(generics.ListAPIView):
-    queryset = Stack.objects.all()
-    serializer_class = StackSerializer
+    queryset = Project.objects.all()
+    serializer_class = ProjectSerializer
 
 
+class ProjectDetailView(generics.RetrieveAPIView):
+    queryset = Project.objects.all()
+    serializer_class = ProjectSerializer
+    lookup_field = 'slug'

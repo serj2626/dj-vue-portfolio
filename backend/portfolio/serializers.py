@@ -16,12 +16,6 @@ class ExperienceSerializer(serializers.ModelSerializer):
                   'responsibilities', 'date_start', 'date_end', )
 
 
-class ProjectSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Project
-        fields = '__all__'
-
-
 class SkillSerializer(serializers.ModelSerializer):
     class Meta:
         model = Skill
@@ -32,6 +26,14 @@ class StackSerializer(serializers.ModelSerializer):
     class Meta:
         model = Stack
         fields = ("title", "img", 'level', "slug")
+
+
+class ProjectSerializer(serializers.ModelSerializer):
+    stack = StackSerializer(many=True)
+
+    class Meta:
+        model = Project
+        fields = '__all__'
 
 
 class ResumeSerializer(serializers.ModelSerializer):

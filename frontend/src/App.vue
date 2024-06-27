@@ -14,9 +14,9 @@ import Footer from './components/Footer.vue';
     <main >
       <RouterView />
     </main>
-    <footer>
+    <!-- <footer>
       <Footer />
-    </footer>
+    </footer> -->
   </div>
 
 </template>
@@ -31,7 +31,8 @@ footer{
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 5rem;
+  height: 80px;
+
 }
 
 </style>
