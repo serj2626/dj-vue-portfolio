@@ -13,11 +13,18 @@ import { useDark, useToggle } from '@vueuse/core';
     </header>
 
     <main>
-      <RouterView />
+      <div class="container-fluid py-1">
+        <div class="row">
+          <div class="info my-5 mx-auto">
+            <RouterView />
+          </div>
+        </div>
+      </div>
     </main>
-    <!-- <footer>
+
+    <footer>
       <Footer />
-    </footer> -->
+    </footer>
   </div>
 
 </template>
@@ -37,11 +44,19 @@ button {
   font-size: 22px;
 }
 
-footer {
-  /* position: absolute;
-  bottom: 0; */
-  /* width: 100%;
-  height: 80px; */
+.info {
+  padding-block: 10px;
+  width: 90%;
+  border: none;
+  border-radius: 20px;
+  background-color: #23272a;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 }
 
+
+footer {
+
+  width: 100%;
+  height: 80px;
+}
 </style>
