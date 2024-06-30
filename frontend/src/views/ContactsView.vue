@@ -37,7 +37,7 @@ const submit = async () => {
 
 <template>
   <div
-    class="col-md-4 mx-auto text-white position-absolute top-50 start-50 translate-middle"
+    class="col-md-4 mx-auto text-white py-5"
   >
     <p class="text-center mb-5 title">Связаться с мной</p>
     <form @submit.prevent="submit" method="post">
