@@ -17,11 +17,8 @@ onMounted(() => {
 });
 </script>
 <template>
-  <div class="container py-1">
 
-    <div class="row">
-      <div class="info">
-        <div class="d-flex justify-content-around">
+        <div class="d-flex justify-content-around align-items-center">
         <div class="text-center text">
           <p>
             Привет! Я Сергей Бойцов.<br />
@@ -33,15 +30,15 @@ onMounted(() => {
           </p>
         </div>
         <div>
-          <img width="500" height="auto" src="/avatar.png" alt="" />
+          <img width="600" height="auto" src="/avatar.png" alt="" />
         </div>
       </div>
-      </div>
       
-    </div>
+      
+   
 
-    <div class="row">
-      <p class="fs-1 title text-center my-3">Инструменты</p>
+    <div class="row mx-auto w-75">
+      <p class="fs-1 title text-center mt-1 mb-4">Инструменты</p>
       <div class="stack col-2" v-for="stack in stacks" :key="stack.id">
         <img
           class="logo-stack"
@@ -54,30 +51,25 @@ onMounted(() => {
 
     <div class="row">
       <div class="d-flex justify-content-around text-white">
-        <div class="d-flex flex-column w-50 text-center">
-          <p class="fs-1 title">Знание стека</p>
+        <div class="d-flex flex-column w-50">
+          <p class="fs-1 title text-center">Знание стека</p>
           <div class="progress_bar" v-for="stack in stacks" :key="stack.id">
             <Progress :title="stack.title" :progress="stack.level" />
           </div>
         </div>
-        <div class="w-50 ml-2 position-relative text-center">
-       <p class="fs-1 title">Статистика</p>         
+        <div class="w-50 ml-2 position-relative">
+       <p class="fs-1 title text-center">Статистика</p>         
           <div class="circle">
             <CircleProgress />
           </div>
         </div>
       </div>
     </div>
-  </div>
+
 </template>
 
 <style scoped>
-.info{
-  padding-block: 50px;
-  border: none;
-  border-radius: 20px;
-  background-color: #23272a;
-}
+
 .circle {
   position: absolute;
   right: 20%;
@@ -98,7 +90,7 @@ onMounted(() => {
   transition: 0.5s;
 
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
   }
 }
 
@@ -113,8 +105,13 @@ img {
 .text {
   font-size: 2rem;
   font-family: "Poppins", sans-serif;
-  color: #03e9f4;
+  color: #d1ded5;
   animation: animate 4.5s linear alternate;
+  padding: 60px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: #343c42;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
 }
 
 @keyframes animate {

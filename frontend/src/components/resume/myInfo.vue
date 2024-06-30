@@ -4,47 +4,26 @@ const props = defineProps({
     user: Object
 })
 </script>
-
-
 <template>
-    <ul>
-        <li>
-            <i class="fa-solid fa-user fa-xl" style="color: #63E6BE;"></i>
-            <span class="fs-2 text-white">
-                {{ user.surname }} {{ user.name }}
-            </span>
-        </li>
-        <li>
-            <i class="fa-solid fa-computer fa-xl" style="color: #63E6BE;"></i>
-            <span class="fs-2 text-white">
-                {{ user.position }}
-            </span>
-        </li>
-        <li>
-            <i class="fa-solid fa-money-bill fa-xl" style="color: #63E6BE;"></i>
-            <span class="fs-2 text-white">
-                {{ user.min_salary }} - {{ user.max_salary }}
-            </span>
-        </li>
-        <li>
-            <i class="fa-brands fa-github fa-xl" style="color: #63E6BE;"></i>
-            <span class="fs-2 text-white">
-                <a :href="user.github_url">github_url</a>
-            </span>
-        </li>
+    <div>
+        <i class="fs-2 text-white">{{ props.user.name }} {{ props.user.surname }}</i><br>
+        <i class="fs-2 text-white">{{ props.user.position }}</i><br>
+        <i class="fs-2 text-white">Санкт-Петербург</i>
+    </div>
+    <div class="flex justify-content-center align-items-center mt-5">
+        <i class="fa-brands fa-github fa-2xl" style="color: red;"></i>
+        <i class="fa-brands fa-telegram fa-2xl" style="color: #74C0FC;"></i>
+        <i class="fa-brands fa-instagram fa-2xl" style="color: #FFD43B;"></i>
+        <i class="fa-brands fa-vk fa-2xl" style="color: #74C0FC;"></i>
+        <i class="fa-brands fa-linkedin fa-2xl" style="color: #74C0FC;"></i>
+    </div>
 
-    </ul>
 </template>
 
 <style scoped>
-
-ul{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.fa-brands {
+    color: #74C0FC;
+    width: 70px;
+    height: 70px;
 }
 </style>

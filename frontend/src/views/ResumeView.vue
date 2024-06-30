@@ -7,7 +7,7 @@ import experienceList from "../components/resume/experienceList.vue";
 import skillList from "../components/resume/skillList.vue";
 import aboutMe from "../components/resume/aboutMe.vue";
 
-const showInfo = ref(null);
+const showInfo = ref(4);
 
 const addShowInfo = (data) => {
   showInfo.value = data;
@@ -53,33 +53,29 @@ onMounted(() => getResume());
 </script>
 
 <template>
-  <div class="container">
-    <div class="row">
-      <div class="left col-md-3 mx-auto">
-        <div class="d-flex flex-column justify-content-around align-items-center">
-          <img class="rounded-4" :src="user.avatar" alt="avatar" />
-          <div class="d-flex">
-            <button @click="addShowInfo(3)" class="link">Навыки</button>
-            <button @click="addShowInfo(2)" class="link">Опыт работы</button>
-            <button @click="addShowInfo(1)" class="link">О себе</button>
-          </div>
-        </div>
-      </div>
-      <div class="right col-md-8">
-        <aboutMe v-if="showInfo === 1" :about="about" />
-        <experienceList v-else-if="showInfo === 2" :experience="experience" />
-        <skillList v-else-if="showInfo === 3" :skills="skills" />
-        <myInfo v-else :user="user" />
-      </div>
-    </div>
+
+  <div class="d-flex justify-content-center pb-5 ">
+    <button @click="addShowInfo(4)" class="link">Контакты</button>
+    <button @click="addShowInfo(3)" class="link">Навыки</button>
+    <button @click="addShowInfo(2)" class="link">Опыт работы</button>
+    <button @click="addShowInfo(4)" class="link">Курсы</button>
+    <button @click="addShowInfo(1)" class="link">О себе</button>
   </div>
+
+  <div class="d-flex justify-content-around">
+    <img class="rounded-3" width="400" height="auto" :src="user.avatar" alt="avatar" />
+    <div>
+      <aboutMe v-if="showInfo === 1" :about="about" />
+      <experienceList v-else-if="showInfo === 2" :experience="experience" />
+      <skillList v-else-if="showInfo === 3" :skills="skills" />
+      <myInfo v-else-if="showInfo === 4" :user="user" />
+    </div>
+
+  </div>
+
 </template>
 
 <style scoped>
-.container {
-  margin-top: 80px;
-}
-
 .link {
   border: none;
   padding: 15px 20px;
@@ -92,17 +88,6 @@ onMounted(() => getResume());
 }
 
 .link:hover {
-  background: linear-gradient(90deg, #42494f, #01fcca);
-}
-
-/* .left {
-  height: 70vh;
-  width: 30%;
-} */
-
-.right {
-  min-height: 70vh;
-  padding: 0 30px;
-  margin-left: 20px;
+  background: linear-gradient(90deg, #5b656d, #09ff9d);
 }
 </style>
