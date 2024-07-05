@@ -5,25 +5,45 @@ const props = defineProps({
 })
 </script>
 <template>
-    <div>
-        <i class="fs-2 text-white">{{ props.user.name }} {{ props.user.surname }}</i><br>
-        <i class="fs-2 text-white">{{ props.user.position }}</i><br>
-        <i class="fs-2 text-white">Санкт-Петербург</i>
+    <ul class="list-unstyled text-white">
+        <li class="col"><p>{{ props.user.name }} {{ props.user.surname }}</p></li>
+        <li class="col"><p>{{ props.user.position }}</p></li>
+        <li><span>Телефон</span><p>+7-953-160-53-84</p></li>
+        <li><span>Телефон</span><p>+7-953-160-53-84</p></li>
+        <li><span>Телефон</span><p>+7-953-160-53-84</p></li>
+        <li><span>Телефон</span><p>+7-953-160-53-84</p></li>
+        <li><span>Телефон</span><p>+7-953-160-53-84</p></li>
+        <li><span>Телефон</span><p>+7-953-160-53-84</p></li>
+    </ul>
+
+    <div class="text-white w-100">
+        <div class="row">
+            <div class="col-6"><span>Имя</span>
+                <p>{{ props.user.name }} {{ props.user.surname }}</p>
+            </div>
+            <div class="col-6"><span>Должность</span>
+                <p>{{ props.user.position }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6"><span>Телефон</span>
+                <p>+7-953-160-53-84</p>
+            </div>
+            <div class="col-6"><span>Телефон</span>
+                <p>+7-953-160-53-84</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6"><span>Телефон</span>
+                <p>+7-953-160-53-84</p>
+            </div>
+            <div class="col-6"><span>Телефон</span>
+                <p>+7-953-160-53-84</p>
+            </div>
+        </div>
     </div>
-    <div class="flex justify-content-center align-items-center mt-5">
-        <i class="fa-brands fa-github fa-2xl" style="color: red;"></i>
-        <i class="fa-brands fa-telegram fa-2xl" style="color: #74C0FC;"></i>
-        <i class="fa-brands fa-instagram fa-2xl" style="color: #FFD43B;"></i>
-        <i class="fa-brands fa-vk fa-2xl" style="color: #74C0FC;"></i>
-        <i class="fa-brands fa-linkedin fa-2xl" style="color: #74C0FC;"></i>
-    </div>
+
 
 </template>
 
-<style scoped>
-.fa-brands {
-    color: #74C0FC;
-    width: 70px;
-    height: 70px;
-}
-</style>
+<style scoped></style>

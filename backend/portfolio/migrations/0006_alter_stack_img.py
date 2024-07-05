@@ -6,13 +6,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('portfolio', '0005_stack_level'),
+        ("portfolio", "0005_stack_level"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='stack',
-            name='img',
-            field=models.ImageField(blank=True, null=True, upload_to='portfolio/stacks', verbose_name='Аватар стека'),
+            model_name="stack",
+            name="img",
+            field=models.ImageField(
+                blank=True,
+                null=True,
+                upload_to="portfolio/stacks",
+                verbose_name="Аватар стека",
+            ),
         ),
     ]

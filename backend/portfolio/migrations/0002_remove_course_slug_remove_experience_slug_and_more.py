@@ -6,25 +6,27 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('portfolio', '0001_initial'),
+        ("portfolio", "0001_initial"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='course',
-            name='slug',
+            model_name="course",
+            name="slug",
         ),
         migrations.RemoveField(
-            model_name='experience',
-            name='slug',
+            model_name="experience",
+            name="slug",
         ),
         migrations.RemoveField(
-            model_name='skill',
-            name='slug',
+            model_name="skill",
+            name="slug",
         ),
         migrations.AlterField(
-            model_name='stack',
-            name='slug',
-            field=models.SlugField(max_length=100, null=True, unique=True, verbose_name='слаг'),
+            model_name="stack",
+            name="slug",
+            field=models.SlugField(
+                max_length=100, null=True, unique=True, verbose_name="слаг"
+            ),
         ),
     ]

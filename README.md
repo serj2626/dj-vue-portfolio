@@ -8,3 +8,18 @@
 ### На сайте представлены мои пет-проекты,контакты и посты о разработке веб-приложений.
 
 ![image](/frontend/src/assets/readme_projects.png)
+
+
+
+#   isort
+>   install isort and start command
+
+```bash 
+pip install isort
+isort .
+```
+
+```bash 
+pip install isort
+```
+

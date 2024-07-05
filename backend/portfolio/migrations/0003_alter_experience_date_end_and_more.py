@@ -6,18 +6,20 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('portfolio', '0002_remove_course_slug_remove_experience_slug_and_more'),
+        ("portfolio", "0002_remove_course_slug_remove_experience_slug_and_more"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='experience',
-            name='date_end',
-            field=models.DateField(blank=True, null=True, verbose_name='Дата окончания'),
+            model_name="experience",
+            name="date_end",
+            field=models.DateField(
+                blank=True, null=True, verbose_name="Дата окончания"
+            ),
         ),
         migrations.AlterField(
-            model_name='experience',
-            name='date_start',
-            field=models.DateField(verbose_name='Дата начала'),
+            model_name="experience",
+            name="date_start",
+            field=models.DateField(verbose_name="Дата начала"),
         ),
     ]

@@ -6,11 +6,19 @@ from rest_framework.response import Response
 
 
 class StackListView(generics.ListAPIView):
+    """
+    Список стеков
+    """
+
     queryset = Stack.objects.all()
     serializer_class = StackSerializer
 
 
 class ResumeView(APIView):
+    """
+    Метод для получения резюме
+    """
+
     def get(self, request):
         queryset = Resume.objects.all().first()
         serializer = ResumeSerializer(queryset)
@@ -19,11 +27,19 @@ class ResumeView(APIView):
 
 
 class ProjectListView(generics.ListAPIView):
+    """
+    Список проектов
+    """
+
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
 
 
 class ProjectDetailView(generics.RetrieveAPIView):
+    """
+    Подробная информация о проекте
+    """
+
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
-    lookup_field = 'slug'
+    lookup_field = "slug"

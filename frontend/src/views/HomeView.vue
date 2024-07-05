@@ -19,7 +19,13 @@ onMounted(() => {
 <template>
 
         <div class="d-flex justify-content-around align-items-center">
-        <div class="text-center text">
+          <transition name="fade">
+            <p class="fs-2 font-weight-bold text-white">
+            Привет! Я Сергей Бойцов.<br />
+            Начинающий fullstack разработчик.
+          </p>
+          </transition>
+        <!-- <div class="text-center text">
           <p>
             Привет! Я Сергей Бойцов.<br />
             Начинающий fullstack разработчик.
@@ -28,7 +34,7 @@ onMounted(() => {
             На этом сайте представлены мои пет-проекты,<br />
             статьи и вся контактная информация.
           </p>
-        </div>
+        </div> -->
         <div>
           <img width="600" height="auto" src="/avatar.png" alt="" />
         </div>
@@ -69,6 +75,14 @@ onMounted(() => {
 </template>
 
 <style scoped>
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
 
 .circle {
   position: absolute;
@@ -106,7 +120,12 @@ img {
   font-size: 2rem;
   font-family: "Poppins", sans-serif;
   color: #d1ded5;
-  animation: animate 4.5s linear alternate;
+
+  /* animation-name: animate;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out; */
+
   padding: 60px 20px;
   border: none;
   border-radius: 20px;
@@ -115,24 +134,33 @@ img {
 }
 
 @keyframes animate {
+
   0% {
     opacity: 0;
+    margin-top: -80px;
+    
   }
 
   25% {
     opacity: 0.2;
+    margin-top: -3px;
+
   }
 
   50% {
     opacity: 0.5;
+    margin-top: 0;
+
   }
 
   75% {
     opacity: 0.7;
+    margin-top: 40px;
   }
 
   100% {
     opacity: 1;
+    margin-top: 80px;
   }
 }
 

@@ -6,13 +6,15 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('portfolio', '0004_stack_img'),
+        ("portfolio", "0004_stack_img"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='stack',
-            name='level',
-            field=models.SmallIntegerField(null=True, verbose_name='Уровень владения стеком'),
+            model_name="stack",
+            name="level",
+            field=models.SmallIntegerField(
+                null=True, verbose_name="Уровень владения стеком"
+            ),
         ),
     ]

@@ -9,23 +9,52 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('portfolio', '0006_alter_stack_img'),
+        ("portfolio", "0006_alter_stack_img"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Article',
+            name="Article",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=100, verbose_name='Название статьи')),
-                ('content', django_ckeditor_5.fields.CKEditor5Field(verbose_name='Описание статьи')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Дата обновления')),
-                ('stacks', models.ManyToManyField(blank=True, to='portfolio.stack', verbose_name='Стеки')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "title",
+                    models.CharField(max_length=100, verbose_name="Название статьи"),
+                ),
+                (
+                    "content",
+                    django_ckeditor_5.fields.CKEditor5Field(
+                        verbose_name="Описание статьи"
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True, verbose_name="Дата создания"
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="Дата обновления"),
+                ),
+                (
+                    "stacks",
+                    models.ManyToManyField(
+                        blank=True, to="portfolio.stack", verbose_name="Стеки"
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Статья',
-                'verbose_name_plural': 'Статьи',
+                "verbose_name": "Статья",
+                "verbose_name_plural": "Статьи",
             },
         ),
     ]

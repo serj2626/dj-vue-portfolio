@@ -79,7 +79,7 @@ const submit = async () => {
 .title {
   font-size: 3rem;
   color: #c61fad;
-  text-shadow: 2px 2px 5px #03e9f4;
+  text-shadow: 1px 1px 5px #03e9f4;
 }
 
 .btn {

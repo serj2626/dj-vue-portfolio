@@ -53,17 +53,17 @@ onMounted(() => getResume());
 </script>
 
 <template>
-
   <div class="d-flex justify-content-center pb-5 ">
-    <button @click="addShowInfo(4)" class="link">Контакты</button>
-    <button @click="addShowInfo(3)" class="link">Навыки</button>
-    <button @click="addShowInfo(2)" class="link">Опыт работы</button>
-    <button @click="addShowInfo(4)" class="link">Курсы</button>
-    <button @click="addShowInfo(1)" class="link">О себе</button>
+    <a @click="addShowInfo(4)" class="btn-info">Контакты</a>
+    <a @click="addShowInfo(3)" class="btn-info">Навыки</a>
+    <a @click="addShowInfo(2)" class="btn-info">Опыт работы</a>
+    <a @click="addShowInfo(4)" class="btn-info">Курсы</a>
+    <a @click="addShowInfo(1)" class="btn-info">О себе</a>
   </div>
 
+
   <div class="d-flex justify-content-around">
-    <img class="rounded-3" width="400" height="auto" :src="user.avatar" alt="avatar" />
+    <img class="rounded-4" width="400" height="500" :src="user.avatar" alt="avatar" />
     <div>
       <aboutMe v-if="showInfo === 1" :about="about" />
       <experienceList v-else-if="showInfo === 2" :experience="experience" />
@@ -76,18 +76,21 @@ onMounted(() => getResume());
 </template>
 
 <style scoped>
-.link {
-  border: none;
-  padding: 15px 20px;
-  border-radius: 10px;
-  margin: 10px;
-  background: linear-gradient(90deg, #42494f, #03e9f4);
+.btn-info {
   color: white;
-  font-size: 20px;
+  text-decoration: none;
+  margin-inline: 10px;
+  font-size: 22px;
+  font-weight: bold;
+  margin-block: 40px;
   cursor: pointer;
-}
+  padding-bottom: 10px;
 
-.link:hover {
-  background: linear-gradient(90deg, #5b656d, #09ff9d);
+
+  &:hover {
+    color: #03e9f4;
+    transition: 0.2s;
+    border-bottom: 2px solid #03e9f4;
+  }
 }
 </style>

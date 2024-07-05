@@ -5,27 +5,37 @@ from .models import Course, Experience, Project, Resume, Skill, Stack
 class CourseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Course
-        fields = ('title', 'company', 'description',
-                  'date_start', 'date_end', )
+        fields = (
+            "title",
+            "company",
+            "description",
+            "date_start",
+            "date_end",
+        )
 
 
 class ExperienceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Experience
-        fields = ('vacancy_title', 'company',
-                  'responsibilities', 'date_start', 'date_end', )
+        fields = (
+            "vacancy_title",
+            "company",
+            "responsibilities",
+            "date_start",
+            "date_end",
+        )
 
 
 class SkillSerializer(serializers.ModelSerializer):
     class Meta:
         model = Skill
-        fields = '__all__'
+        fields = "__all__"
 
 
 class StackSerializer(serializers.ModelSerializer):
     class Meta:
         model = Stack
-        fields = ("title", "img", 'level', "slug")
+        fields = ("title", "img", "level", "slug")
 
 
 class ProjectSerializer(serializers.ModelSerializer):
@@ -33,7 +43,7 @@ class ProjectSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Project
-        fields = '__all__'
+        fields = "__all__"
 
 
 class ResumeSerializer(serializers.ModelSerializer):
@@ -44,9 +54,18 @@ class ResumeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Resume
-        fields = ('name', 'surname',
-                  'position', 'stack', 'skill',
-                  'course', 'experience', 'min_salary',
-                  'max_salary', 'about', 'github_url',
-                          'avatar',
-                  'get_avatar')
+        fields = (
+            "name",
+            "surname",
+            "position",
+            "stack",
+            "skill",
+            "course",
+            "experience",
+            "min_salary",
+            "max_salary",
+            "about",
+            "github_url",
+            "avatar",
+            "get_avatar",
+        )

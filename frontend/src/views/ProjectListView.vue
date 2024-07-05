@@ -37,8 +37,9 @@ onMounted(() => {
       modifier: 1,
       slideShadows: true,
     }"
-    :pagination="false"
+    :pagination="true"
     :modules="modules"
+
     class="mySwiper"
   >
     <swiper-slide v-for="project in projects" :key="project.id">
