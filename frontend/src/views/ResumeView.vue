@@ -85,9 +85,16 @@ onMounted(() => getResume());
   margin-block: 40px;
   cursor: pointer;
   padding-bottom: 10px;
+  border-bottom: 2px solid transparent;
 
 
   &:hover {
+    color: #03e9f4;
+    transition: 0.2s;
+    border-bottom: 2px solid #03e9f4;
+  }
+
+  &:active {
     color: #03e9f4;
     transition: 0.2s;
     border-bottom: 2px solid #03e9f4;

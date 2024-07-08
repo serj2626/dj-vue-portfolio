@@ -3,6 +3,7 @@ from .models import Project, Stack, Resume
 from rest_framework import generics
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from drf_spectacular.utils import extend_schema
 
 
 class StackListView(generics.ListAPIView):
@@ -43,3 +44,7 @@ class ProjectDetailView(generics.RetrieveAPIView):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
     lookup_field = "slug"
+
+    @extend_schema(summary="Подробная информация о проекте по слагу")
+    def retrieve(self, request, *args, **kwargs):
+        return super().retrieve(request, *args, **kwargs)

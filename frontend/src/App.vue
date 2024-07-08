@@ -47,6 +47,7 @@ button {
 .info {
   padding-block: 10px;
   width: 90%;
+  min-height: 90vh;
   border: none;
   border-radius: 20px;
   background-color: #23272a;

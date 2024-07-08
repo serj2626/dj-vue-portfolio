@@ -1,3 +1,4 @@
+from pyexpat import model
 from django.db import models
 from django_ckeditor_5.fields import CKEditor5Field
 from pytils.translit import slugify
@@ -51,12 +52,14 @@ class Stack(models.Model):
     img = models.ImageField(
         upload_to="portfolio/stacks", null=True, blank=True, verbose_name="Аватар стека"
     )
+    queue = models.SmallIntegerField(verbose_name="Порядок", null=True)
     level = models.SmallIntegerField(verbose_name="Уровень владения стеком", null=True)
     slug = models.SlugField(max_length=100, null=True, unique=True, verbose_name="слаг")
 
     class Meta:
         verbose_name = "Стек"
         verbose_name_plural = "Стеки"
+        ordering = ["queue"]
 
     def __str__(self):
         return self.title
