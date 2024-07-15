@@ -8,7 +8,6 @@ class ArticleAdmin(admin.ModelAdmin):
 
     list_display = (
         "title",
-        "content",
         "created_at",
         "updated_at",
     )
