@@ -17,71 +17,92 @@ onMounted(() => {
 });
 </script>
 <template>
-
-        <div class="d-flex justify-content-around align-items-center">
-          <transition name="fade">
-            <p class="fs-2 font-weight-bold text-white">
-            Привет! Я Сергей Бойцов.<br />
-            Начинающий fullstack разработчик.
-          </p>
-          </transition>
-        <!-- <div class="text-center text">
-          <p>
-            Привет! Я Сергей Бойцов.<br />
-            Начинающий fullstack разработчик.
-          </p>
-          <p>
-            На этом сайте представлены мои пет-проекты,<br />
-            статьи и вся контактная информация.
-          </p>
-        </div> -->
-        <div>
-          <img width="600" height="auto" src="/avatar.png" alt="" />
-        </div>
-      </div>
-      
-      
-   
-
-    <div class="row mx-auto w-75">
-      <p class="fs-1 title text-center mt-1 mb-4">Инструменты</p>
-      <div class="stack col-2" v-for="stack in stacks" :key="stack.id">
-        <img
-          class="logo-stack"
-          :src="stack.img"
-          :alt="stack.title"
-          :title="stack.title"
-        />
-      </div>
+  <div class="d-flex justify-content-center align-items-center mb-5">
+    <div class="aboutMe">
+      Привет, я <span class="font-weight-bold">Сергей Бойцов</span>. Начинающий Full-Stack разработчик.
     </div>
+    <div>
+      <img width="1000" height="auto" src="@/assets/home.png" alt="" />
+    </div>
+  </div>
 
-    <div class="row">
-      <div class="d-flex justify-content-around text-white">
-        <div class="d-flex flex-column w-50">
-          <p class="fs-1 title text-center">Знание стека</p>
-          <div class="progress_bar" v-for="stack in stacks" :key="stack.id">
-            <Progress :title="stack.title" :progress="stack.level" />
-          </div>
+
+  <div class="row mx-auto w-75">
+    <p class="fs-2 title text-center mt-1 mb-4">Инструменты</p>
+    <div class="stack col-2" v-for="stack in stacks" :key="stack.id">
+      <img class="logo-stack" :src="stack.img" :alt="stack.title" :title="stack.title" />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="d-flex justify-content-around text-white">
+      <div class="d-flex flex-column w-50">
+        <p class="fs-2 title text-center">Знание стека</p>
+        <div class="progress_bar" v-for="stack in stacks" :key="stack.id">
+          <Progress :title="stack.title" :progress="stack.level" />
         </div>
-        <div class="w-50 ml-2 position-relative">
-       <p class="fs-1 title text-center">Статистика</p>         
-          <div class="circle">
-            <CircleProgress />
-          </div>
+      </div>
+      <div class="w-50 ml-2 position-relative">
+        <p class="fs-2 title text-center">Статистика</p>
+        <div class="circle">
+          <CircleProgress />
         </div>
       </div>
     </div>
-
+  </div>
 </template>
 
 <style scoped>
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
+.aboutMe {
+  width: 500px;
+  padding: 60px 20px;
+  text-align: center;
+  font-size: 2rem;
+  letter-spacing: 1.5px;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  font-style: italic;
+
+  animation-name: start-show-aboutMe;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
 }
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease;
+
+@keyframes start-show-aboutMe {
+  0% {
+    opacity: 0;
+    scale: 0.2;
+    color: white;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+
+
+  100% {
+    opacity: 1;
+  }
+}
+
+img{
+  animation: image-to-color 5s linear ;
+}
+
+@keyframes image-to-color {
+  0% {
+    filter: brightness(0.7);
+  }
+
+  50% {
+    filter: brightness(1.1);
+  }
+
+  100% {
+    filter: brightness(1.5);
+  }
 }
 
 .circle {
@@ -89,6 +110,7 @@ onMounted(() => {
   right: 20%;
   top: 10%;
 }
+
 .row {
   margin-block: 90px;
 }
@@ -121,61 +143,10 @@ img {
   font-family: "Poppins", sans-serif;
   color: #d1ded5;
 
-  /* animation-name: animate;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out; */
-
   padding: 60px 20px;
   border: none;
   border-radius: 20px;
   background-color: #343c42;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
 }
-
-@keyframes animate {
-
-  0% {
-    opacity: 0;
-    margin-top: -80px;
-    
-  }
-
-  25% {
-    opacity: 0.2;
-    margin-top: -3px;
-
-  }
-
-  50% {
-    opacity: 0.5;
-    margin-top: 0;
-
-  }
-
-  75% {
-    opacity: 0.7;
-    margin-top: 40px;
-  }
-
-  100% {
-    opacity: 1;
-    margin-top: 80px;
-  }
-}
-
-/* @keyframes animate {
-  0% {
-    color: #9fa2a0;
-    text-shadow: 0 0 5px #03e9f4;
-  }
-  50% {
-    color: #03e9f4;
-    text-shadow: 0 0 10px #03e9f4;
-  }
-  100% {
-    color: #9fa2a0;
-    text-shadow: 0 0 5px #03e9f4;
-  }
-} */
 </style>
