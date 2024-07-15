@@ -9,18 +9,13 @@ console.log(props.experience);
 
 
 <template>
-  <div class="d-flex flex-column justify-content-around align-items-center text-white fs-5">
+  <div class="text-white">
     <p>Опыт работы</p>
 
-    <div v-for="obj in props.experience" :key="obj.id">
-      <div class="card">
-        <div class="card-title">
-          {{ obj.vacancy_title }}
-        </div>
-        <div class="card-text">
-          <p v-html="obj.responsibilities"></p>
-        </div>
-      </div>
+    <div class="card-text" v-for="obj in props.experience" :key="obj.id">
+      {{ obj.vacancy_title }}
+      <p class="card-text" v-html="obj.responsibilities"></p>
     </div>
   </div>
+
 </template>

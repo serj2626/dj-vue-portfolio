@@ -5,45 +5,47 @@ const props = defineProps({
 })
 </script>
 <template>
-    <ul class="list-unstyled text-white">
-        <li class="col"><p>{{ props.user.name }} {{ props.user.surname }}</p></li>
-        <li class="col"><p>{{ props.user.position }}</p></li>
-        <li><span>Телефон</span><p>+7-953-160-53-84</p></li>
-        <li><span>Телефон</span><p>+7-953-160-53-84</p></li>
-        <li><span>Телефон</span><p>+7-953-160-53-84</p></li>
-        <li><span>Телефон</span><p>+7-953-160-53-84</p></li>
-        <li><span>Телефон</span><p>+7-953-160-53-84</p></li>
-        <li><span>Телефон</span><p>+7-953-160-53-84</p></li>
-    </ul>
-
-    <div class="text-white w-100">
-        <div class="row">
-            <div class="col-6"><span>Имя</span>
-                <p>{{ props.user.name }} {{ props.user.surname }}</p>
+    <div class="row">
+        <div class="d-flex flex-column align-content-center w-75 mx-auto">
+            <div class="btn-about">
+                <p><span>👨‍🍼 </span>{{ props.user.name }} {{ props.user.surname }}</p>
             </div>
-            <div class="col-6"><span>Должность</span>
-                <p>{{ props.user.position }}</p>
+            <div class="btn-about">
+                <p><span>👉 </span>{{ props.user.position }}</p>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-6"><span>Телефон</span>
-                <p>+7-953-160-53-84</p>
+            <div class="btn-about">
+                <p><span>☎️ </span>8-953-160-53-84</p>
             </div>
-            <div class="col-6"><span>Телефон</span>
-                <p>+7-953-160-53-84</p>
+            <div class="btn-about">
+                <p><span>✉️ </span><a class="text-white text-decoration-none" href="mailto:serj2626@mail.ru">serj2626@mail.ru</a></p>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-6"><span>Телефон</span>
-                <p>+7-953-160-53-84</p>
-            </div>
-            <div class="col-6"><span>Телефон</span>
-                <p>+7-953-160-53-84</p>
+            <div class="btn-about">
+                <p><span>🇷🇺 </span>Russia, Saint-Petersburg</p>
             </div>
         </div>
     </div>
 
-
 </template>
 
-<style scoped></style>
+<style scoped>
+.btn-about {
+    padding: 10px;
+    border-radius: 10px;
+    margin-block: 10px;
+    font-size: 20px;
+    color: white;
+    font-family: serif;
+    background: #42494f;
+    cursor: auto;
+    transition: all 0.8s ease;
+
+    &:hover{
+        scale: 1.1;
+    }
+
+}
+
+.btn-about span {
+    font-size: 30px;
+}
+</style>

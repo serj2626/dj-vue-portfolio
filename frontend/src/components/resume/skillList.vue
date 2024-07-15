@@ -3,6 +3,7 @@
 const props = defineProps({
     skills: Array
 })
+console.log(props.skills);
 </script>
 
 
