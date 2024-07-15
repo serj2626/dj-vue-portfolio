@@ -5,21 +5,11 @@
 ![image](/frontend/src/assets/readme.png)
 
 
-### На сайте представлены мои пет-проекты,контакты и посты о разработке веб-приложений.
+### На сайте представлены мои пет-проекты и посты о разработке веб-приложений.
 
 ![image](/frontend/src/assets/readme_projects.png)
 
 
+### Вся моя контактная информация доступна в разделе "Резюме и Контакты".
 
-#   isort
->   install isort and start command
-
-```bash 
-pip install isort
-isort .
-```
-
-```bash 
-pip install isort
-```
-
+![image](/frontend/src/assets/readme_about.png)

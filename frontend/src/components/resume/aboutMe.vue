@@ -7,17 +7,12 @@ defineProps({
 
 
 <template>
-    <div
-          class="d-flex flex-column justify-content-around align-items-center text-white fs-5"
-        >
-          <p class="fs-2 text">О себе</p>
+
+          <p class="fs-1 text-white">О себе</p>
           <hr />
-          <p v-html="about"></p>
-        </div>
+          <p class=" fs-5 text-white" v-html="about"></p>
+     
 </template>
 <style scoped>
 
-.text{
-  color: #03e9f4;
-}
 </style>
