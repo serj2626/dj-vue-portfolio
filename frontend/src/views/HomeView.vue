@@ -8,7 +8,6 @@ const stacks = ref([]);
 
 const getStacks = async () => {
   const response = await axios.get("/api/stacks/");
-  console.log(response.data);
   stacks.value = response.data;
 };
 
@@ -21,9 +20,9 @@ onMounted(() => {
     <div class="aboutMe">
       Привет, я Сергей Бойцов <br>Начинающий Full-Stack разработчик.
     </div>
-    <div>
+ 
       <img width="1000" height="auto" src="@/assets/home.png" alt="" />
-    </div>
+ 
   </div>
 
 
@@ -54,7 +53,7 @@ onMounted(() => {
 
 <style scoped>
 .aboutMe {
-  padding-left: 20px;
+
   text-align: center;
   font-size: 36px;
   letter-spacing: 1.5px;

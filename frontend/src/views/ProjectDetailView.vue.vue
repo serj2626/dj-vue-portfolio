@@ -13,8 +13,8 @@ const project = ref({});
 const getProject = async () => {
   try {
     const res = await axios.get(`/api/projects/${props.slug}/`);
-    console.log(res.data);
     project.value = res.data;
+    console.log(project.value);
   } catch {
     toast.error("Что-то пошло не так");
   }
@@ -26,40 +26,38 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="container py-5">
-    <div class="row">
-      <div
-        class="project d-flex flex-column justify-content-between align-items-center text-white fs-5"
-      >
-        <p class="fs-1 py-3 title">{{ project.title }}</p>
-        <img
-          class="rounded-4"
-          :src="project.avatar"
-          :alt="project.title"
-          :title="project.title"
-        />
-        <div>
-          <p v-html="project.description"></p>
-        </div>
-        <div class="" v-for="stack in project.stack" :key="stack.id">
-            <div class="col">
-            <button class="btn btn-outline-light">{{ stack.title }}</button>    
-            </div>
-          
-        </div>
-      </div>
-    </div>
+
+  <div class="row">
+    <p class="fs-1 py-3 title1">{{ project.title }}</p>
   </div>
+  <div class="d-flex align-items-center justify-content-center gap-5 mb-5">
+    <img class="img-stack" v-for="stack in project.stack" :src="stack.img" :alt="stack.title" :title="stack.title">
+  </div>
+  <div class="row">
+    <img class="rounded-4 w-75 mx-auto img-ava" :src="project.avatar" :alt="project.title" :title="project.title" />
+  </div>
+
+
+  <div class="row mt-5 text-white">
+    <p v-html="project.description"></p>
+  </div>
+  <div class="row">
+    <a class="text-white text-decoration-none" :href="project.url" target="_blank">Исходный код</a>
+  </div>
+
 </template>
 
 <style scoped>
-img {
-  width: 80%;
+.img-stack {
+  width: 60px;
   height: auto;
-  shape-outside: circle(50%);
 }
 
-.title {
+.img-ava{
+ filter: brightness(1.1);
+}
+
+.title1 {
   color: #fa0aee;
   text-align: center;
 }

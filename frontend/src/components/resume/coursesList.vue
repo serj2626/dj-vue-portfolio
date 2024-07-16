@@ -2,6 +2,8 @@
 const props = defineProps({
     courses: Array
 })
+
+console.log(props.courses);
 </script>
 
 <template>

@@ -160,7 +160,7 @@ const router = useRouter();
   }
 }
 
-.router-link-exact-active {
+.router-link-active {
   background: #07bcc6;
   color: #050801;
   box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,

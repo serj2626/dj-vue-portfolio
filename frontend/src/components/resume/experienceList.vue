@@ -44,7 +44,7 @@ const updateShow = (id) => {
   padding-inline: 10px;
   font-size: 20px;
   color: white;
-  font-family: serif;
+  font-family: 'Times New Roman', Times, serif;
   background: #42494f;
   margin-bottom: 15px;
   cursor: auto;
@@ -57,9 +57,9 @@ article {
  font-size: 20px;
  font-family: serif;
  text-align: start;
- border: 1px solid white;
+
  border-radius: 10px;
- padding: 10px;
+ padding: 20px;
  height: 500px;
  overflow: auto;
  transition: all 0.8s ease;
