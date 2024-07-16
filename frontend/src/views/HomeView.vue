@@ -19,7 +19,7 @@ onMounted(() => {
 <template>
   <div class="d-flex justify-content-center align-items-center mb-5">
     <div class="aboutMe">
-      Привет, я <span class="font-weight-bold">Сергей Бойцов</span>. Начинающий Full-Stack разработчик.
+      Привет, я Сергей Бойцов <br>Начинающий Full-Stack разработчик.
     </div>
     <div>
       <img width="1000" height="auto" src="@/assets/home.png" alt="" />
@@ -54,13 +54,12 @@ onMounted(() => {
 
 <style scoped>
 .aboutMe {
-  width: 500px;
-  padding: 60px 20px;
+  padding-left: 20px;
   text-align: center;
-  font-size: 2rem;
+  font-size: 36px;
   letter-spacing: 1.5px;
   font-family: "Poppins", sans-serif;
-  color: white;
+  color: #45b1ff;
   font-style: italic;
 
   animation-name: start-show-aboutMe;
