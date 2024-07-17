@@ -45,7 +45,7 @@ const router = createRouter({
       },
     },
     {
-      path: '/posts',
+      path: '/posts/',
       name: 'posts',
       component: () => import('../views/PostListView.vue'),
       meta: {
@@ -56,6 +56,7 @@ const router = createRouter({
       path: '/posts/:id',
       name: 'post',
       component: () => import('../views/PostDetailView.vue'),
+      props: true,
       meta: {
         title: "Моя статья",
       },
