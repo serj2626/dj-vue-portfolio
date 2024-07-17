@@ -24,12 +24,16 @@ onMounted(() => {
   <div class="row w-75 mx-auto">
 
     <article v-for="post in posts" :key="post.id">
-      <div class="post">
-        <RouterLink :to="{ name: 'post', params: { id: post.id } }">
-          {{ post.title }}
-        </RouterLink>
-        
+      <div class="card w-50">
+        <div class="card-body">
+          <h5 class="card-title">{{ post.title }}</h5>
+          <RouterLink :to="{ name: 'post', params: { id: post.id } }">
+            <a href="#" class="btn btn-primary">Читать</a>
+          </RouterLink>
+        </div>
       </div>
+
+
     </article>
 
   </div>
@@ -43,14 +47,7 @@ onMounted(() => {
   text-align: center;
 }
 
-.post{
-  color: white;
-  width: 50%;
-  background: linear-gradient(to right, #1b5976, #8f215f);
-  border-radius: 10px;
-  font-size: 22px;
-  padding: 10px 15px;
-  margin: 10px;
-  margin: 0 auto;
+.card {
+  background: linear-gradient(45deg, #03e9f4, #10d569,#fdde42);
 }
 </style>

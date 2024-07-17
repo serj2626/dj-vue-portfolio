@@ -44,6 +44,15 @@ const router = createRouter({
         title: "Проект",
       },
     },
+    // {
+    //   path: '/projects/:slug',
+    //   name: 'project',
+    //   component: () => import('../views/PageNotFoundView.vue'),
+    //   props: true,
+    //   meta: {
+    //     title: "Проект",
+    //   },
+    // },
     {
       path: '/posts/',
       name: 'posts',
