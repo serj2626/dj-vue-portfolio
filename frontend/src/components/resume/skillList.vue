@@ -11,7 +11,7 @@ console.log(props.skills);
 <a href="" class="text-white text-decoration-none"></a>
   <p class="fs-1 text-white">Навыки</p>
   <hr />
-  <div class="w-75 mx-auto">
+  <div class="w-50 mx-auto">
     <ul v-for="skill in props.skills" :key="skill.id">
       <li>{{ skill.title }}</li>
     </ul>
@@ -23,19 +23,25 @@ console.log(props.skills);
 ul {
   /* list-style-type: none; */
   height: 40px;
-  padding-block: 10px;
   font-size: 20px;
   color: white;
+  padding: 0;
   font-family: 'Times New Roman', Times, serif;
-  /* background: #42494f; */
-  cursor: auto;
-  transition: all 0.8s ease;
+}
+
+ul li{
+  transition: all 0.6s ease-in;
+  text-align: start;
+
+
 
   &:hover{
-    transform: scale(1.1);
+    cursor: pointer;
+    transform: translateX(150px);
+    color: #f5b80f;
   }
 
-  &::marker {
+  &:hover:marker{
     color: #f5b80f;
   }
 }
