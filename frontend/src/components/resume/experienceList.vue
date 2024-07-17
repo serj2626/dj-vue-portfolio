@@ -25,7 +25,14 @@ const updateShow = (id) => {
 
     <div class="experience">
       <p>{{ obj.vacancy_title }}</p>
-      <button @click="updateShow(obj.id)" class="btn btn-outline-dark">
+      <button
+      v-if="showExperience === obj.id"
+      @click="updateShow(obj.id)" class="btn btn-outline-dark">
+        <i class="fa-solid fa-arrow-up fa-xl" style="color: #f5b80f;"></i>
+      </button>
+      <button
+      v-else
+      @click="updateShow(obj.id)" class="btn btn-outline-dark">
         <i class="fa-solid fa-arrow-down fa-xl" style="color: #f5b80f;"></i>
       </button>
     </div>
