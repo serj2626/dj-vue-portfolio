@@ -16,12 +16,12 @@ onMounted(() => {
 });
 </script>
 <template>
-  <div class="d-flex justify-content-center align-items-center mb-5">
+  <div class="d-flex justify-content-center align-items-center mb-5 w-75 mx-auto">
     <div class="aboutMe">
-      Привет, я Сергей Бойцов <br>Начинающий Full-Stack разработчик.
+      Привет, я Сергей Бойцов. Начинающий Full-Stack разработчик.
     </div>
  
-      <img width="1000" height="auto" src="@/assets/home.png" alt="" />
+      <img width="auto" height="auto" src="@/assets/home.png" alt="" />
  
   </div>
 
@@ -56,7 +56,6 @@ onMounted(() => {
 
   text-align: center;
   font-size: 36px;
-  letter-spacing: 1.5px;
   font-family: "Poppins", sans-serif;
   color: #45b1ff;
   font-style: italic;

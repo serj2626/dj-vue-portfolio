@@ -26,39 +26,66 @@ onMounted(() => {
 </script>
 
 <template>
-
   <div class="row">
     <p class="fs-1 py-3 title1">{{ project.title }}</p>
   </div>
   <div class="d-flex align-items-center justify-content-center gap-5 mb-5">
-    <img class="img-stack" v-for="stack in project.stack" :src="stack.img" :alt="stack.title" :title="stack.title">
+    <img
+      class="img-stack"
+      v-for="stack in project.stack"
+      :src="stack.img"
+      :alt="stack.title"
+      :title="stack.title"
+    />
   </div>
   <div class="row">
-    <img class="rounded-4 w-75 mx-auto img-ava" :src="project.avatar" :alt="project.title" :title="project.title" />
+    <img
+      class="rounded-4 w-75 mx-auto img-ava"
+      :src="project.avatar"
+      :alt="project.title"
+      :title="project.title"
+    />
   </div>
-
 
   <div class="row mt-5 text-white">
     <p v-html="project.description"></p>
   </div>
   <div class="row">
-    <a class="text-white text-decoration-none" :href="project.url" target="_blank">Исходный код</a>
+    <a
+      class="text-decoration-none project__url"
+      :href="project.url"
+      target="_blank"
+      >Исходный код</a
+    >
   </div>
-
 </template>
 
 <style scoped>
 .img-stack {
   width: 60px;
   height: auto;
+  box-shadow: 0 0 10px #03e9f4;
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 10px;
+  transition: box-shadow 0.3s ease-in;
+
+  &:hover {
+    box-shadow: 0 0 10px #03e9f4, 0 0 20px #03e9f4, 0 0 30px #03e9f4,
+      0 0 40px #03e9f4, 0 0 50px #03e9f4, 0 0 60px #03e9f4, 0 0 70px #03e9f4;
+  }
 }
 
-.img-ava{
- filter: brightness(1.1);
+.img-ava {
+  filter: brightness(1.1);
 }
 
 .title1 {
   color: #fa0aee;
   text-align: center;
+}
+
+.project__url {
+  color: #f7ff0c;
 }
 </style>

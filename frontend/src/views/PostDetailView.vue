@@ -20,7 +20,7 @@ onMounted(() => {
 
 <template>
   <div class="text-white w-75 mx-auto p-5">
-    <h1 class="text-center mb-5">Пост {{ post.title }}</h1>
+    <h1 class="text-center mb-5">{{ post.title }}</h1>
     <p v-html="post.content"></p>
   </div>
 </template>

@@ -66,8 +66,7 @@ onMounted(() => {
 <style scoped>
 .swiper {
   width: 100%;
-  padding-top: 150px;
-  padding-bottom: 150px;
+  padding-block: 90px;
 }
 
 .swiper-slide {

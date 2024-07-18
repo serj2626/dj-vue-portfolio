@@ -7,18 +7,22 @@ console.log(props.skills);
 
 <template>
 
-  <p class="fs-1 text-white mb-5">Навыки</p>
+  <p class="fs-1 text-white mb-5 skills-title">Навыки</p>
 
 
   <div class="w-50 mx-auto">
-    <ul v-for="skill in props.skills" :key="skill.id">
+    <ul class="skill-list" v-for="skill in props.skills" :key="skill.id">
       <li>{{ skill.title }}</li>
     </ul>
   </div>
 
 </template>
 <style scoped>
-ul {
+
+.skills-title {
+  text-shadow: 3px 3px 3px #f5e60f95;
+}
+.skill-list {
   height: 40px;
   font-size: 20px;
   color: white;
@@ -26,8 +30,8 @@ ul {
   font-family: "Times New Roman", Times, serif;
 }
 
-ul li {
-  transition: all 0.5s ease-in;
+.skill-list li {
+  transition: all 0.8s ease-in;
   text-align: start;
 
   &:hover,
