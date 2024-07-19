@@ -47,6 +47,7 @@ const getResume = async () => {
       skills.value = res.data.skill;
       stacks.value = res.data.stack;
       about.value = res.data.about;
+      console.log(res.data);
   } catch (error) {
       toast.error("Что-то пошло не так");
   }

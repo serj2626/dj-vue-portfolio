@@ -5,13 +5,7 @@ from .models import Course, Experience, Project, Resume, Skill, Stack
 class CourseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Course
-        fields = (
-            "title",
-            "company",
-            "description",
-            "date_start",
-            "date_end",
-        )
+        fields = "__all__"
 
 
 class ExperienceSerializer(serializers.ModelSerializer):
