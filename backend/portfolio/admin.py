@@ -20,8 +20,6 @@ class ResumeAdmin(admin.ModelAdmin):
         "name",
         "surname",
         "position",
-        "min_salary",
-        "max_salary",
         "github_url",
     )
 

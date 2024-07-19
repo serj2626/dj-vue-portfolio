@@ -11,15 +11,7 @@ class CourseSerializer(serializers.ModelSerializer):
 class ExperienceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Experience
-        fields = (
-            "id",
-            "vacancy_title",
-            "company",
-            "responsibilities",
-            "date_start",
-            "date_end",
-        )
-
+        fields = "__all__"
 
 class SkillSerializer(serializers.ModelSerializer):
     class Meta:
@@ -30,7 +22,7 @@ class SkillSerializer(serializers.ModelSerializer):
 class StackSerializer(serializers.ModelSerializer):
     class Meta:
         model = Stack
-        fields = ("title", "img", "level", "slug")
+        fields = "__all__"
 
 
 class ProjectSerializer(serializers.ModelSerializer):
@@ -42,25 +34,6 @@ class ProjectSerializer(serializers.ModelSerializer):
 
 
 class ResumeSerializer(serializers.ModelSerializer):
-    skill = SkillSerializer(many=True)
-    stack = StackSerializer(many=True)
-    experience = ExperienceSerializer(many=True)
-    course = CourseSerializer(many=True)
-
     class Meta:
         model = Resume
-        fields = (
-            "name",
-            "surname",
-            "position",
-            "stack",
-            "skill",
-            "course",
-            "experience",
-            "min_salary",
-            "max_salary",
-            "about",
-            "github_url",
-            "avatar",
-            "get_avatar",
-        )
+        fields = "__all__"

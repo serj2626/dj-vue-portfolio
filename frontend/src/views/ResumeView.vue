@@ -8,7 +8,6 @@ import coursesList from "../components/resume/coursesList.vue";
 import skillList from "../components/resume/skillList.vue";
 import aboutMe from "../components/resume/aboutMe.vue";
 
-
 const toast = useToast();
 const showInfo = ref(4);
 
@@ -35,21 +34,11 @@ const about = ref("");
 const getResume = async () => {
   try {
     const res = await axios.get("/api/resume/");
-      user.name = res.data.name;
-      user.surname = res.data.surname;
-      user.position = res.data.position;
-      user.min_salary = res.data.min_salary;
-      user.max_salary = res.data.max_salary;
-      user.github_url = res.data.github_url;
-      user.avatar = res.data.get_avatar;
-      experience.value = res.data.experience;
-      courses.value = res.data.course;
-      skills.value = res.data.skill;
-      stacks.value = res.data.stack;
-      about.value = res.data.about;
-      console.log(res.data);
+
+    about.value = res.data.about;
+    console.log(res.data);
   } catch (error) {
-      toast.error("Что-то пошло не так");
+    toast.error("Что-то пошло не так");
   }
 };
 onMounted(() => getResume());
@@ -79,7 +68,7 @@ onMounted(() => getResume());
       class="btn-info"
       :class="{ active: showInfo === 5 }"
       @click="addShowInfo(5)"
-      >Курсы и Образование</a
+      >Курсы</a
     >
     <a
       class="btn-info"
@@ -91,7 +80,6 @@ onMounted(() => getResume());
 
   <div class="row mx-auto text-center">
     <div class="col-4 position-relative">
-      <!-- <img :src="user.avatar" class="rounded-5" alt="avatar"> -->
       <img src="/avatar.png" class="ava rounded-5" alt="avatar" />
     </div>
     <div class="col-8">
@@ -115,7 +103,6 @@ onMounted(() => getResume());
   0 0 40px #03e9f4, 0 0 50px #03e9f4, 0 0 60px #03e9f4, 0 0 70px #03e9f4; */
   box-shadow: 0 0 30px 20px #03e9f4;
   cursor: pointer;
-
 }
 /* img{
   transition: all 0.8s ease ;

@@ -12,11 +12,8 @@ class Course(models.Model):
         verbose_name="Описание курса", config_name="extends")
     img = models.ImageField(upload_to="portfolio/courses",
                             null=True, verbose_name="Аватар курса")
-    date_start = models.DateField(
-        auto_now_add=True, verbose_name="Дата начала")
-    date_end = models.DateField(
-        auto_now=True, verbose_name="Дата окончания", null=True, blank=True
-    )
+    date_start = models.DateField(null=True, verbose_name="Дата начала")
+    date_end = models.DateField(null=True, verbose_name="Дата окончания")
 
     class Meta:
         verbose_name = "Курс"
@@ -32,9 +29,9 @@ class Experience(models.Model):
     company = models.CharField(max_length=100, verbose_name="Компания")
     responsibilities = CKEditor5Field(
         verbose_name="Обязанности", config_name="extends")
-    date_start = models.DateField(verbose_name="Дата начала")
+    date_start = models.DateField(null=True, verbose_name="Дата начала")
     date_end = models.DateField(
-        verbose_name="Дата окончания", null=True, blank=True)
+        verbose_name="Дата окончания", null=True)
 
     class Meta:
         verbose_name = "Опыт работы"
@@ -105,18 +102,14 @@ class Resume(models.Model):
     name = models.CharField(max_length=100, verbose_name="Имя")
     surname = models.CharField(max_length=100, verbose_name="Фамилия")
     position = models.CharField(max_length=100, verbose_name="Должность")
-    stack = models.ManyToManyField(Stack, verbose_name="Стек", blank=True)
-    skill = models.ManyToManyField(Skill, verbose_name="Навыки", blank=True)
-    course = models.ManyToManyField(Course, verbose_name="Курсы", blank=True)
-    experience = models.ManyToManyField(
-        Experience, verbose_name="Опыт работы", blank=True
-    )
-    min_salary = models.IntegerField(
-        verbose_name="Минимальная зарплата", blank=True, null=True
-    )
-    max_salary = models.IntegerField(
-        verbose_name="Максимальная зарплата,", blank=True, null=True
-    )
+    phone = models.CharField(
+        max_length=100, default='8-953-160-53-84', verbose_name="Телефон")
+    email = models.EmailField(
+        max_length=100, default='serj2626@mail.ru', verbose_name="Email")
+    country = models.CharField(
+        max_length=100, default="Россия", verbose_name="Страна")
+    city = models.CharField(
+        max_length=100, default="Санкт-Петербург", verbose_name="Город")
     about = CKEditor5Field(verbose_name="О себе", config_name="extends")
     github_url = models.URLField(
         verbose_name="Ссылка на GitHub", null=True, blank=True)
