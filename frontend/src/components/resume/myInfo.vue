@@ -15,14 +15,14 @@ const props = defineProps({
                 <p><span>👉 </span>{{ props.user.position }}</p>
             </div>
             <div class="btn-about">
-                <p><span>☎️ </span>8-953-160-53-84</p>
+                <p><span>☎️ </span>{{ props.user.phone }}</p>
             </div>
             <div class="btn-about">
                 <p><span>✉️ </span><a class="text-white text-decoration-none"
-                        href="mailto:serj2626@mail.ru">serj2626@mail.ru</a></p>
+                        href="mailto:serj2626@mail.ru">{{ props.user.email }}</a></p>
             </div>
             <div class="btn-about">
-                <p><span>🇷🇺 </span>Russia, Saint-Petersburg</p>
+                <p><span>🇷🇺 </span>{{ props.user.country }}, {{ props.user.city }}</p>
             </div>
         </div>
     </div>

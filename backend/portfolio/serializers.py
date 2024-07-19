@@ -16,7 +16,7 @@ class ExperienceSerializer(serializers.ModelSerializer):
 class SkillSerializer(serializers.ModelSerializer):
     class Meta:
         model = Skill
-        fields = "__all__"
+        fields = ("title", )
 
 
 class StackSerializer(serializers.ModelSerializer):

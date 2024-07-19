@@ -1,8 +1,17 @@
 <script setup>
-import { ref } from "vue";
+import axios from "axios";
+import { ref, onMounted } from "vue";
 
-const props = defineProps({
-  experience: Array,
+const experiences = ref([]);
+
+const getExperience = async () => {
+  const response = await axios.get("/api/experiences/");
+  experiences.value = response.data;
+  console.log(experiences.value);
+};
+
+onMounted(() => {
+  getExperience();
 });
 
 const showExperience = ref(null);
@@ -18,7 +27,7 @@ const updateShow = (id) => {
 
 <template>
   <p class="experience__title fs-1 text-white">Опыт работы</p>
-  <div class="w-75 mx-auto my-5" v-for="obj in props.experience" :key="obj.id">
+  <div class="w-75 mx-auto my-5" v-for="obj in experiences" :key="obj.id">
     <div class="experience d-flex align-items-center">
 
         <p>{{ obj.vacancy_title }}</p>

@@ -19,22 +19,26 @@ const user = reactive({
   name: "",
   surname: "",
   position: "",
-  min_salary: "",
-  max_salary: "",
+  country: "",
+  city: "",
+  email: "",
+  phone: "",
   github_url: "",
-  avatar: "",
 });
 
-const experience = ref([]);
-const courses = ref([]);
-const skills = ref([]);
-const stacks = ref([]);
 const about = ref("");
 
 const getResume = async () => {
   try {
     const res = await axios.get("/api/resume/");
-
+    user.name = res.data.name;
+    user.surname = res.data.surname;
+    user.position = res.data.position;
+    user.country = res.data.country;
+    user.city = res.data.city;
+    user.email = res.data.email;
+    user.phone = res.data.phone;
+    user.github_url = res.data.github_url;
     about.value = res.data.about;
     console.log(res.data);
   } catch (error) {
@@ -84,10 +88,10 @@ onMounted(() => getResume());
     </div>
     <div class="col-8">
       <aboutMe v-if="showInfo === 1" :about="about" />
-      <experienceList v-else-if="showInfo === 2" :experience="experience" />
-      <skillList v-else-if="showInfo === 3" :skills="skills" />
+      <experienceList v-else-if="showInfo === 2" />
+      <skillList v-else-if="showInfo === 3" />
       <myInfo v-else-if="showInfo === 4" :user="user" />
-      <coursesList v-else-if="showInfo === 5" :courses="courses" />
+      <coursesList v-else-if="showInfo === 5" />
     </div>
   </div>
 </template>
@@ -104,13 +108,6 @@ onMounted(() => getResume());
   box-shadow: 0 0 30px 20px #03e9f4;
   cursor: pointer;
 }
-/* img{
-  transition: all 0.8s ease ;
-}
-img:hover{
-  cursor: pointer;
-  transform: translate3d(0, -10px, 0);  
-} */
 
 .btn-info {
   color: white;

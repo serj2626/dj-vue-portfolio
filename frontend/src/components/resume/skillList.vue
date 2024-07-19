@@ -1,8 +1,17 @@
 <script setup>
-const props = defineProps({
-  skills: Array,
-});
-console.log(props.skills);
+import axios from 'axios';
+import { onMounted, ref } from 'vue';
+const skills = ref([]);
+
+const getSkills = async () => {
+  const response = await axios.get('/api/skills/');
+  skills.value = response.data;
+}
+
+onMounted(() => {
+  getSkills();
+})
+
 </script>
 
 <template>
@@ -11,7 +20,7 @@ console.log(props.skills);
 
 
   <div class="w-50 mx-auto">
-    <ul class="skill-list" v-for="skill in props.skills" :key="skill.id">
+    <ul class="skill-list" v-for="skill in skills" :key="skill.id">
       <li>{{ skill.title }}</li>
     </ul>
   </div>
