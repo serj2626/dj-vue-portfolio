@@ -19,7 +19,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <h1 class="post__title">Посты</h1>
+  <h1 class="post__title fs-1">Посты</h1>
 
   <div class="row">
     <div class="d-flex justify-content-center gap-5 flex-wrap">
@@ -27,7 +27,7 @@ onMounted(() => {
         <div class="card-body">
           <h5 class="card-title">{{ post.title }}</h5>
           <RouterLink :to="{ name: 'post', params: { id: post.id } }">
-            <button class="btn btn-primary">Читать</button>
+            <button class="btn btn-dark">Читать</button>
           </RouterLink>
         </div>
       </article>
@@ -41,8 +41,8 @@ onMounted(() => {
 
 <style scoped>
 .post__title {
-  color:  rgba(13, 245, 249, 0.629);
-  text-shadow: 0 0 2px wheat;
+  color:  white;
+  text-shadow: 3px 3px 3px #f5e60f95;
   font-weight: 700;
   text-align: center;
   margin-bottom: 100px;

@@ -26,37 +26,38 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="row">
-    <p class="fs-1 py-3 title1">{{ project.title }}</p>
-  </div>
-  <div class="d-flex align-items-center justify-content-center gap-5 mb-5">
-    <img
-      class="img-stack"
-      v-for="stack in project.stack"
-      :src="stack.img"
-      :alt="stack.title"
-      :title="stack.title"
-    />
-  </div>
-  <div class="row">
-    <img
-      class="rounded-4 w-75 mx-auto img-ava"
-      :src="project.avatar"
-      :alt="project.title"
-      :title="project.title"
-    />
-  </div>
+  <p class="fs-1 py-3 project__title">{{ project.title }}</p>
 
-  <div class="row mt-5 text-white">
-    <p v-html="project.description"></p>
-  </div>
-  <div class="row">
-    <a
-      class="text-decoration-none project__url"
-      :href="project.url"
-      target="_blank"
-      >Исходный код</a
-    >
+  <div class="row my-5">
+    <div class="d-flex align-items-center justify-content-center gap-5 mb-5">
+      <img
+        class="img-stack"
+        v-for="stack in project.stack"
+        :src="stack.img"
+        :alt="stack.title"
+        :title="stack.title"
+      />
+    </div>
+    <div class="row">
+      <img
+        class="w-75 mx-auto project__avatar"
+        :src="project.avatar"
+        :alt="project.title"
+        :title="project.title"
+      />
+    </div>
+
+    <div class="row mt-5 text-white">
+      <p v-html="project.description"></p>
+    </div>
+    <div class="row">
+      <a
+        class="text-decoration-none project__url"
+        :href="project.url"
+        target="_blank"
+        >Исходный код</a
+      >
+    </div>
   </div>
 </template>
 
@@ -76,12 +77,14 @@ onMounted(() => {
   }
 }
 
-.img-ava {
+.project__avatar {
   filter: brightness(1.1);
+  border-radius: 6px;
 }
 
-.title1 {
-  color: #fa0aee;
+.project__title {
+  color: white;
+  text-shadow: 3px 3px 3px #f5b80f95;
   text-align: center;
 }
 

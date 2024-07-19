@@ -6,9 +6,14 @@ from pytils.translit import slugify
 
 class Course(models.Model):
     title = models.CharField(max_length=100, verbose_name="Название курса")
-    company = models.CharField(max_length=100, verbose_name="Учебное заведение")
-    description = CKEditor5Field(verbose_name="Описание курса", config_name="extends")
-    date_start = models.DateField(auto_now_add=True, verbose_name="Дата начала")
+    company = models.CharField(
+        max_length=100, verbose_name="Учебное заведение")
+    description = CKEditor5Field(
+        verbose_name="Описание курса", config_name="extends")
+    img = models.ImageField(upload_to="portfolio/courses",
+                            null=True, verbose_name="Аватар курса")
+    date_start = models.DateField(
+        auto_now_add=True, verbose_name="Дата начала")
     date_end = models.DateField(
         auto_now=True, verbose_name="Дата окончания", null=True, blank=True
     )
@@ -22,11 +27,14 @@ class Course(models.Model):
 
 
 class Experience(models.Model):
-    vacancy_title = models.CharField(max_length=100, verbose_name="Название вакансии")
+    vacancy_title = models.CharField(
+        max_length=100, verbose_name="Название вакансии")
     company = models.CharField(max_length=100, verbose_name="Компания")
-    responsibilities = CKEditor5Field(verbose_name="Обязанности", config_name="extends")
+    responsibilities = CKEditor5Field(
+        verbose_name="Обязанности", config_name="extends")
     date_start = models.DateField(verbose_name="Дата начала")
-    date_end = models.DateField(verbose_name="Дата окончания", null=True, blank=True)
+    date_end = models.DateField(
+        verbose_name="Дата окончания", null=True, blank=True)
 
     class Meta:
         verbose_name = "Опыт работы"
@@ -53,8 +61,10 @@ class Stack(models.Model):
         upload_to="portfolio/stacks", null=True, blank=True, verbose_name="Аватар стека"
     )
     queue = models.SmallIntegerField(verbose_name="Порядок", null=True)
-    level = models.SmallIntegerField(verbose_name="Уровень владения стеком", null=True)
-    slug = models.SlugField(max_length=100, null=True, unique=True, verbose_name="слаг")
+    level = models.SmallIntegerField(
+        verbose_name="Уровень владения стеком", null=True)
+    slug = models.SlugField(max_length=100, null=True,
+                            unique=True, verbose_name="слаг")
 
     class Meta:
         verbose_name = "Стек"
@@ -67,14 +77,17 @@ class Stack(models.Model):
 
 class Project(models.Model):
     title = models.CharField(max_length=100, verbose_name="Название проекта")
-    description = CKEditor5Field(verbose_name="Описание проекта", config_name="extends")
+    description = CKEditor5Field(
+        verbose_name="Описание проекта", config_name="extends")
     stack = models.ManyToManyField(Stack, verbose_name="Стеки проекта")
     avatar = models.ImageField(
         upload_to="portfolio/projects", null=True, verbose_name="Аватар проекта"
     )
-    url = models.URLField(verbose_name="Ссылка на проект", null=True, blank=True)
+    url = models.URLField(verbose_name="Ссылка на проект",
+                          null=True, blank=True)
 
-    slug = models.SlugField(max_length=100, null=True, unique=True, verbose_name="URL")
+    slug = models.SlugField(max_length=100, null=True,
+                            unique=True, verbose_name="URL")
 
     def save(self, *args, **kwargs):
         self.slug = self.slug or slugify(self.title)
@@ -105,7 +118,8 @@ class Resume(models.Model):
         verbose_name="Максимальная зарплата,", blank=True, null=True
     )
     about = CKEditor5Field(verbose_name="О себе", config_name="extends")
-    github_url = models.URLField(verbose_name="Ссылка на GitHub", null=True, blank=True)
+    github_url = models.URLField(
+        verbose_name="Ссылка на GitHub", null=True, blank=True)
     avatar = models.ImageField(
         upload_to="portfolio/resumes", null=True, verbose_name="Аватар резюме"
     )

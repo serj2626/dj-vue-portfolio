@@ -1,12 +1,15 @@
 <script setup>
 import axios from "axios";
 import { onMounted, reactive, ref } from "vue";
+import { useToast } from "vue-toastification";
 import myInfo from "../components/resume/myInfo.vue";
 import experienceList from "../components/resume/experienceList.vue";
 import coursesList from "../components/resume/coursesList.vue";
 import skillList from "../components/resume/skillList.vue";
 import aboutMe from "../components/resume/aboutMe.vue";
 
+
+const toast = useToast();
 const showInfo = ref(4);
 
 const addShowInfo = (data) => {
@@ -32,22 +35,20 @@ const about = ref("");
 const getResume = async () => {
   try {
     const res = await axios.get("/api/resume/");
-    console.log(res.data);
-    user.name = res.data.name;
-    user.surname = res.data.surname;
-    user.position = res.data.position;
-    user.min_salary = res.data.min_salary;
-    user.max_salary = res.data.max_salary;
-    user.github_url = res.data.github_url;
-    user.avatar = res.data.get_avatar;
-    experience.value = res.data.experience;
-    courses.value = res.data.course;
-    skills.value = res.data.skill;
-    stacks.value = res.data.stack;
-    about.value = res.data.about;
-    console.log(skills.value);
+      user.name = res.data.name;
+      user.surname = res.data.surname;
+      user.position = res.data.position;
+      user.min_salary = res.data.min_salary;
+      user.max_salary = res.data.max_salary;
+      user.github_url = res.data.github_url;
+      user.avatar = res.data.get_avatar;
+      experience.value = res.data.experience;
+      courses.value = res.data.course;
+      skills.value = res.data.skill;
+      stacks.value = res.data.stack;
+      about.value = res.data.about;
   } catch (error) {
-    console.log("error " + error);
+      toast.error("Что-то пошло не так");
   }
 };
 onMounted(() => getResume());
@@ -77,7 +78,7 @@ onMounted(() => getResume());
       class="btn-info"
       :class="{ active: showInfo === 5 }"
       @click="addShowInfo(5)"
-      >Курсы</a
+      >Курсы и Образование</a
     >
     <a
       class="btn-info"
@@ -109,8 +110,9 @@ onMounted(() => getResume());
   width: 80%;
   height: auto;
   margin: 30px;
-  box-shadow: 0 0 10px #03e9f4, 0 0 20px #03e9f4, 0 0 30px #03e9f4,
-    0 0 40px #03e9f4, 0 0 50px #03e9f4, 0 0 60px #03e9f4, 0 0 70px #03e9f4;
+  /* box-shadow: 0 0 10px #03e9f4, 0 0 20px #03e9f4, 0 0 30px #03e9f4,
+  0 0 40px #03e9f4, 0 0 50px #03e9f4, 0 0 60px #03e9f4, 0 0 70px #03e9f4; */
+  box-shadow: 0 0 30px 20px #03e9f4;
   cursor: pointer;
 
 }

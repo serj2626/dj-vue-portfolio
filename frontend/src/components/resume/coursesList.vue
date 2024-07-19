@@ -7,8 +7,8 @@ console.log(props.courses);
 </script>
 
 <template>
-    <div>
-
+    <p class="courses__title fs-1 text-white">Курсы</p>
+    <div class="row">
         <div v-for="course in props.courses" :key="course.id">
             <div class="btn-about w-75 mx-auto">
                 <p>{{ course.title }}</p>
@@ -18,6 +18,14 @@ console.log(props.courses);
 </template>
 
 <style scoped>
+
+.courses__title {
+  font-size: 3rem;
+  color: white;
+  text-shadow: 3px 3px 3px #f5b80f95;
+}
+
+
 .btn-about {
     padding: 10px;
     border-radius: 10px;
@@ -29,7 +37,7 @@ console.log(props.courses);
     cursor: auto;
     transition: all 0.8s ease;
 
-    &:hover{
+    &:hover {
         scale: 1.1;
     }
 
