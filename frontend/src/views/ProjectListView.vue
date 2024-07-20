@@ -39,26 +39,22 @@ onMounted(() => {
     }"
     :pagination="true"
     :modules="modules"
-
     class="mySwiper"
   >
     <swiper-slide v-for="project in projects" :key="project.id">
-      <div
-        @click="
-          router.push({ name: 'project', params: { slug: project.slug } })
-        "
-        class="card"
-      >
-        <img
-          :src="project.avatar"
-          class="card-img-top"
-          :alt="project.title"
-          :title="project.title"
-        />
-        <div class="card-body">
-          <h5 class="card-title text-center">{{ project.title }}</h5>
+      <RouterLink :to="{ name: 'project', params: { slug: project.slug } }">
+        <div class="card">
+          <img
+            :src="project.avatar"
+            class="card-img-top"
+            :alt="project.title"
+            :title="project.title"
+          />
+          <div class="card-body">
+            <h5 class="card-title text-center">{{ project.title }}</h5>
+          </div>
         </div>
-      </div>
+      </RouterLink>
     </swiper-slide>
   </swiper>
 </template>

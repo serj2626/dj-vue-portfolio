@@ -1,4 +1,3 @@
-from pyexpat import model
 from django.db import models
 from django_ckeditor_5.fields import CKEditor5Field
 from pytils.translit import slugify
@@ -6,12 +5,11 @@ from pytils.translit import slugify
 
 class Course(models.Model):
     title = models.CharField(max_length=100, verbose_name="Название курса")
-    company = models.CharField(
-        max_length=100, verbose_name="Учебное заведение")
-    description = CKEditor5Field(
-        verbose_name="Описание курса", config_name="extends")
-    img = models.ImageField(upload_to="portfolio/courses",
-                            null=True, verbose_name="Аватар курса")
+    company = models.CharField(max_length=100, verbose_name="Учебное заведение")
+    description = CKEditor5Field(verbose_name="Описание курса", config_name="extends")
+    img = models.ImageField(
+        upload_to="portfolio/courses", null=True, verbose_name="Аватар курса"
+    )
     date_start = models.DateField(null=True, verbose_name="Дата начала")
     date_end = models.DateField(null=True, verbose_name="Дата окончания")
 
@@ -24,14 +22,11 @@ class Course(models.Model):
 
 
 class Experience(models.Model):
-    vacancy_title = models.CharField(
-        max_length=100, verbose_name="Название вакансии")
+    vacancy_title = models.CharField(max_length=100, verbose_name="Название вакансии")
     company = models.CharField(max_length=100, verbose_name="Компания")
-    responsibilities = CKEditor5Field(
-        verbose_name="Обязанности", config_name="extends")
+    responsibilities = CKEditor5Field(verbose_name="Обязанности", config_name="extends")
     date_start = models.DateField(null=True, verbose_name="Дата начала")
-    date_end = models.DateField(
-        verbose_name="Дата окончания", null=True)
+    date_end = models.DateField(verbose_name="Дата окончания", null=True)
 
     class Meta:
         verbose_name = "Опыт работы"
@@ -58,10 +53,8 @@ class Stack(models.Model):
         upload_to="portfolio/stacks", null=True, blank=True, verbose_name="Аватар стека"
     )
     queue = models.SmallIntegerField(verbose_name="Порядок", null=True)
-    level = models.SmallIntegerField(
-        verbose_name="Уровень владения стеком", null=True)
-    slug = models.SlugField(max_length=100, null=True,
-                            unique=True, verbose_name="слаг")
+    level = models.SmallIntegerField(verbose_name="Уровень владения стеком", null=True)
+    slug = models.SlugField(max_length=100, null=True, unique=True, verbose_name="слаг")
 
     class Meta:
         verbose_name = "Стек"
@@ -74,17 +67,14 @@ class Stack(models.Model):
 
 class Project(models.Model):
     title = models.CharField(max_length=100, verbose_name="Название проекта")
-    description = CKEditor5Field(
-        verbose_name="Описание проекта", config_name="extends")
+    description = CKEditor5Field(verbose_name="Описание проекта", config_name="extends")
     stack = models.ManyToManyField(Stack, verbose_name="Стеки проекта")
     avatar = models.ImageField(
         upload_to="portfolio/projects", null=True, verbose_name="Аватар проекта"
     )
-    url = models.URLField(verbose_name="Ссылка на проект",
-                          null=True, blank=True)
+    url = models.URLField(verbose_name="Ссылка на проект", null=True, blank=True)
 
-    slug = models.SlugField(max_length=100, null=True,
-                            unique=True, verbose_name="URL")
+    slug = models.SlugField(max_length=100, null=True, unique=True, verbose_name="URL")
 
     def save(self, *args, **kwargs):
         self.slug = self.slug or slugify(self.title)
@@ -103,16 +93,17 @@ class Resume(models.Model):
     surname = models.CharField(max_length=100, verbose_name="Фамилия")
     position = models.CharField(max_length=100, verbose_name="Должность")
     phone = models.CharField(
-        max_length=100, default='8-953-160-53-84', verbose_name="Телефон")
+        max_length=100, default="8-953-160-53-84", verbose_name="Телефон"
+    )
     email = models.EmailField(
-        max_length=100, default='serj2626@mail.ru', verbose_name="Email")
-    country = models.CharField(
-        max_length=100, default="Россия", verbose_name="Страна")
+        max_length=100, default="serj2626@mail.ru", verbose_name="Email"
+    )
+    country = models.CharField(max_length=100, default="Россия", verbose_name="Страна")
     city = models.CharField(
-        max_length=100, default="Санкт-Петербург", verbose_name="Город")
+        max_length=100, default="Санкт-Петербург", verbose_name="Город"
+    )
     about = CKEditor5Field(verbose_name="О себе", config_name="extends")
-    github_url = models.URLField(
-        verbose_name="Ссылка на GitHub", null=True, blank=True)
+    github_url = models.URLField(verbose_name="Ссылка на GitHub", null=True, blank=True)
     avatar = models.ImageField(
         upload_to="portfolio/resumes", null=True, verbose_name="Аватар резюме"
     )

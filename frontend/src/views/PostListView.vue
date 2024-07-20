@@ -4,7 +4,7 @@ import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
 
 
-const router = useRouter();
+
 const posts = ref([]);
 
 const getProjects = async () => {

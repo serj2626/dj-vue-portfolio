@@ -28,9 +28,10 @@ class ResumeAdmin(admin.ModelAdmin):
 class StackAdmin(admin.ModelAdmin):
     """Admin View for Stack)"""
 
-    list_display = ("title", "slug", 'queue')
-    list_editable = ('queue',)
+    list_display = ("title", "slug", "queue")
+    list_editable = ("queue",)
     prepopulated_fields = {"slug": ("title",)}
+
 
 @admin.register(Course)
 class CourseAdmin(admin.ModelAdmin):

@@ -1,4 +1,11 @@
-from .serializers import ExperienceSerializer, SkillSerializer, StackSerializer, ResumeSerializer, ProjectSerializer, CourseSerializer
+from .serializers import (
+    ExperienceSerializer,
+    SkillSerializer,
+    StackSerializer,
+    ResumeSerializer,
+    ProjectSerializer,
+    CourseSerializer,
+)
 from .models import Course, Experience, Project, Skill, Stack, Resume
 from rest_framework import generics
 from rest_framework.views import APIView

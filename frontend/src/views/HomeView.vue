@@ -3,18 +3,8 @@ import axios from "axios";
 import { onMounted, ref } from "vue";
 import Progress from "../components/Progress.vue";
 import CircleProgress from "@/components/CircleProgress.vue";
+import StacklList from "../components/StackList.vue";
 
-const stacks = ref([]);
-
-const getStacks = async () => {
-  const response = await axios.get("/api/stacks/");
-  stacks.value = response.data;
-  console.log(stacks.value);
-};
-
-onMounted(() => {
-  getStacks();
-});
 
 </script>
 <template>
@@ -29,10 +19,7 @@ onMounted(() => {
 
 
   <div class="row mx-auto w-75">
-    <p class="fs-2 stack__title text-center mt-1 mb-4">Мои инструменты</p>
-    <div class="stack col-2" v-for="stack in stacks" :key="stack.id">
-      <img class="logo-stack" :src="stack.img" :alt="stack.title" :title="stack.title" />
-    </div>
+    <StacklList />
   </div>
 
   <div class="row">
@@ -63,20 +50,6 @@ onMounted(() => {
 
     </div>
   </div>
-
-
-
-  <div class="row mx-auto w-75">
-    <p>Знание стека</p>
-
-    <div v-for="stack in stacks" :key="stack.id">
-      <span class="text-white">{{ stack.title }} {{ stack.level }}%</span>
-      <hr class="text-white" :style="{ width: stack.level + '%' }">
-      <div class="z bg-warning" :style="{ width: stack.level + '%' }">
-      </div>
-    </div>
-  </div>
-
 
 </template>
 
@@ -182,25 +155,6 @@ img {
   margin-block: 90px;
 }
 
-.stack {
-  margin-block: 20px;
-}
-
-.logo-stack {
-  width: 80px;
-  height: 80px;
-  cursor: pointer;
-  transition: 0.5s;
-
-  &:hover {
-    transform: scale(1.2);
-  }
-}
-
-.stack__title {
-  color: white;
-  text-shadow: 2px 2px 3px #f5e60f95;
-}
 
 img {
   filter: brightness(1.2);

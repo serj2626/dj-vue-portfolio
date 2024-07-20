@@ -27,7 +27,8 @@ const updateShow = (id) => {
 
 <template>
   <p class="experience__title fs-1 text-white">Опыт работы</p>
-  <div class="w-75 mx-auto my-5" v-for="obj in experiences" :key="obj.id">
+
+<div class="w-75 mx-auto my-5" v-for="obj in experiences" :key="obj.id">
     <div class="experience d-flex align-items-center">
 
         <p>{{ obj.vacancy_title }}</p>
@@ -93,5 +94,9 @@ article {
   scrollbar-color: #f5b80f #2e2b2c;
   scrollbar-width: thin;
   transition: all 0.8s ease;
+}
+
+button{
+  display: block;
 }
 </style>

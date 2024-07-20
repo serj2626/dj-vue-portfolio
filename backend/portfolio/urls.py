@@ -1,7 +1,13 @@
 from django.urls import path
-from .views import (ProjectListView, StackListView, ResumeView, 
-                    ProjectDetailView, CourseListView,
-                    ExperienceListView, SkillListView)
+from .views import (
+    ProjectListView,
+    StackListView,
+    ResumeView,
+    ProjectDetailView,
+    CourseListView,
+    ExperienceListView,
+    SkillListView,
+)
 from posts.views import PostListView, PostDetailView
 
 urlpatterns = [
