@@ -4,7 +4,7 @@ from .models import Course, Experience, Project, Resume, Skill, Stack
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
-    """Admin View for Project)"""
+    """Admin View for Project"""
 
     list_display = (
         "title",
@@ -14,7 +14,7 @@ class ProjectAdmin(admin.ModelAdmin):
 
 @admin.register(Resume)
 class ResumeAdmin(admin.ModelAdmin):
-    """Admin View for Resume)"""
+    """Admin View for Resume"""
 
     list_display = (
         "name",
@@ -26,16 +26,16 @@ class ResumeAdmin(admin.ModelAdmin):
 
 @admin.register(Stack)
 class StackAdmin(admin.ModelAdmin):
-    """Admin View for Stack)"""
+    """Admin View for Stack"""
 
-    list_display = ("title", "slug", "queue")
-    list_editable = ("queue",)
+    list_display = ("title", "slug", "queue", "level")
+    list_editable = ("queue", "level")
     prepopulated_fields = {"slug": ("title",)}
 
 
 @admin.register(Course)
 class CourseAdmin(admin.ModelAdmin):
-    """Admin View for Course)"""
+    """Admin View for Course"""
 
     list_display = (
         "title",
@@ -47,14 +47,14 @@ class CourseAdmin(admin.ModelAdmin):
 
 @admin.register(Skill)
 class SkillAdmin(admin.ModelAdmin):
-    """Admin View for Skill)"""
+    """Admin View for Skill"""
 
     list_display = ("title",)
 
 
 @admin.register(Experience)
 class ExperienceAdmin(admin.ModelAdmin):
-    """Admin View for Experience)"""
+    """Admin View for Experience"""
 
     list_display = (
         "vacancy_title",

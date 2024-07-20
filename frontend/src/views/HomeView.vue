@@ -39,7 +39,7 @@ import StacklList from "../components/StackList.vue";
       <img src="@/assets/home.png" alt="" />
     </div> -->
 
-  <div class="row mx-auto w-75">
+  <div class="row mx-auto w-75 stacks">
     <StacklList />
   </div>
 
@@ -61,10 +61,26 @@ import StacklList from "../components/StackList.vue";
       </div>
     </div>
   </div>
-  -->
 </template>
 
 <style scoped>
+@keyframes stacks-scroll {
+  from {
+    opacity: 0;
+    transform: translateY(300px);
+  }
+}
+
+.stacks {
+  animation-name: stacks-scroll;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in;
+
+  view-timeline-name: --stacks-scroll;
+  animation-timeline: --stacks-scroll;
+  animation-range: 20% 50%;
+}
+
 .statistic {
   margin-top: 100px;
   display: flex;
@@ -99,7 +115,7 @@ import StacklList from "../components/StackList.vue";
   }
 }
 
-.block span{
+.block span {
   font-size: 36px;
   font-family: "Poppins", sans-serif;
   color: #45b1ff;
