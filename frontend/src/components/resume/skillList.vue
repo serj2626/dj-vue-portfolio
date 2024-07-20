@@ -16,7 +16,7 @@ onMounted(() => {
 
 <template>
 
-  <p class="fs-1 text-white mb-5 skills-title">Навыки</p>
+  <p class="fs-1 text-white mb-5 skills__title">Навыки</p>
 
 
   <div class="w-50 mx-auto">
@@ -28,7 +28,7 @@ onMounted(() => {
 </template>
 <style scoped>
 
-.skills-title {
+.skills__title {
   text-shadow: 3px 3px 3px #f5e60f95;
 }
 .skill-list {

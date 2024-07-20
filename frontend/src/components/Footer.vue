@@ -11,33 +11,33 @@
           <use xlink:href="#bootstrap"></use>
         </svg>
       </a>
-      <span class="text-white fs-4">© 2024 Boytsov S.V   SPB</span>
+      <span class="text-white fs-6">© 2024 Boytsov S.V   SPB</span>
     </div>
 
     <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
       <li class="ms-3">
         <a class="text-white" href="#"
-          ><i class="fa-brands fa-telegram fa-2xl" style="color: #74c0fc"></i
+          ><i class="fa-brands fa-telegram fa-xl" style="color: #74c0fc"></i
         ></a>
       </li>
       <li class="ms-3">
         <a class="text-white" href="#"
-          ><i class="fa-brands fa-instagram fa-2xl" style="color: #ffd43b"></i
+          ><i class="fa-brands fa-instagram fa-xl" style="color: #ffd43b"></i
         ></a>
       </li>
       <li class="ms-3">
         <a class="text-white" href="#"
-          ><i class="fa-brands fa-linkedin fa-2xl" style="color: #74c0fc"></i
+          ><i class="fa-brands fa-linkedin fa-xl" style="color: #74c0fc"></i
         ></a>
       </li>
       <li class="ms-3">
         <a class="text-white" href="#"
-          ><i class="fa-brands fa-vk fa-2xl" style="color: #74c0fc"></i
+          ><i class="fa-brands fa-vk fa-xl" style="color: #74c0fc"></i
         ></a>
       </li>
       <li class="ms-3">
         <a class="text-white" href="#"
-          ><i class="fa-brands fa-github fa-2xl" style="color: white"></i
+          ><i class="fa-brands fa-github fa-xl" style="color: white"></i
         ></a>
       </li>
     </ul>

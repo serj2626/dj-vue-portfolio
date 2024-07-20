@@ -8,26 +8,20 @@ defineProps({
 
 
 const beforeEnter = (el) => {
-  console.log("before Enter");
   el.style.transform = "translateY(-180px)";
   el.style.opacity = 0;
 };
 
 const enter = (el, done) => {
-  console.log("enter");
-
   gsap.to(el, {
     opacity: 1,
-    duration: 3,
+    duration: 2,
     y: 0,
     ease: "bounce.out",
     onComplete: done,
   });
 };
 
-const afterEnter = (el) => {
-  console.log("after Enter");
-};
 </script>
 
 <template>

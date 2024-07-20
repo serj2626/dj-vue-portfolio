@@ -1,102 +1,112 @@
 <script setup>
-import axios from "axios";
-import { onMounted, ref } from "vue";
-import Progress from "../components/Progress.vue";
-import CircleProgress from "@/components/CircleProgress.vue";
 import StacklList from "../components/StackList.vue";
-
-
 </script>
 <template>
-  <div class="d-flex justify-content-center align-items-center mb-5 w-75 mx-auto">
-    <div class="aboutMe">
-      Привет, я Сергей Бойцов. Начинающий Full-Stack разработчик.
+  <div class="row col-10 mx-auto">
+    <div class="col-5">
+      <img
+        class="header-img text-center"
+        src="@/assets/home.png"
+        srcset="./img/photo@2x.jpg 2x"
+        alt="Photo"
+      />
     </div>
+    <div class="col-4">
+      <div class="header-desc">
+        <h1 class="header-title text-white">Сергей Бойцов</h1>
+        <p class="header-text text-white">
+          фрилансер, веб-разработчик,<br />
+          создание сайтов
+        </p>
 
-    <img width="auto" height="auto" src="@/assets/home.png" alt="" />
-
+        <div class="header-btns">
+          <a href="#" class="btn">Портфолио</a>
+          <a href="#" class="btn-outline">Контакты</a>
+        </div>
+      </div>
+    </div>
   </div>
 
+  <!-- <div class="d-flex justify-content-center align-items-center">
+      <div class="aboutMe">
+        <h1 class="header-title">Сергей Бойцов</h1>
+        <p class="header-text">
+          фрилансер, веб-разработчик,<br />
+          создание сайтов
+        </p>
+      </div>
+
+      <img src="@/assets/home.png" alt="" />
+    </div> -->
 
   <div class="row mx-auto w-75">
     <StacklList />
   </div>
 
   <div class="row">
-    <div class="d-flex justify-content-around text-white">
-      <div class="d-flex flex-column w-50">
-        <p class="fs-2 stack__title text-center">Знание стека</p>
-        <div class="progress_bar" v-for="stack in stacks" :key="stack.id">
-          <Progress :title="stack.title" :progress="stack.level" />
-        </div>
-      </div>
-      <div class="w-50 ml-2 position-relative">
-        <p class="fs-2 stack__title text-center">Статистика</p>
-        <div class="circle">
-          <CircleProgress />
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
     <div class="w-75 mx-auto">
+      <p class="fs-2 statistic__title text-center text-white mt-5">
+        Статистика сайта
+      </p>
 
-      <div class="statistic">
-        <div class="block1">100</div>
-        <div class="block2">213</div>
-        <div class="block3">123123</div>
+      <div class="statistic text-center">
+        <div class="block text-white">
+          <h4>Количество статей</h4>
+          <span>4</span>
+        </div>
+        <div class="block text-white">
+          <h4>Количество проектов</h4>
+          <span>6</span>
+        </div>
       </div>
-
     </div>
   </div>
-
+  -->
 </template>
 
 <style scoped>
-
 .statistic {
+  margin-top: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
-
+  column-gap: 60px;
 }
 
-.block1 {
+.statistic__title {
+  text-shadow: 3px 3px 3px #f5e60f95;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px 10px;
   width: 250px;
   height: 150px;
-  background-color: red;
-  border-radius: 10px;
-}
-
-.block2 {
-  width: 250px;
-  height: 150px;
-  background-color: green;
-  border-radius: 10px;
-  margin-inline: 30px;
-}
-
-.block3 {
-  width: 250px;
-  height: 150px;
-  background-color: blue;
-  border-radius: 20px;
-}
-
-.z {
-  border: 2px solid rgb(250, 250, 250);
-  margin-block: 10px;
+  background-color: rgb(32, 31, 31);
   border-radius: 10px;
   box-sizing: border-box;
-  height: 30px;
+  box-shadow: 0 0 10px white;
+  transition: all 0.5s ease;
+
+  &:hover {
+    rotate: 5deg;
+    translate: 0 -10px;
+    background-color: rgb(64, 59, 59);
+  }
 }
 
-/* aadsad */
-
+.block span{
+  font-size: 36px;
+  font-family: "Poppins", sans-serif;
+  color: #45b1ff;
+  font-style: italic;
+}
 
 .aboutMe {
-
   text-align: center;
   font-size: 36px;
   font-family: "Poppins", sans-serif;
@@ -119,8 +129,6 @@ import StacklList from "../components/StackList.vue";
   50% {
     opacity: 0.5;
   }
-
-
 
   100% {
     opacity: 1;
@@ -154,7 +162,6 @@ img {
 .row {
   margin-block: 90px;
 }
-
 
 img {
   filter: brightness(1.2);

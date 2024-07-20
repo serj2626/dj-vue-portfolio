@@ -22,7 +22,7 @@ onMounted(() => {
     <div class="card col-5 mx-3" v-for="course in courses" :key="course.id">
         <div class="card-header h-25"><h4>{{ course.title }}</h4>{{ course.company }}</div>
         <div class="card-body h-50">
-            <img class="w-75 h-75 py-2" :src="course.img" alt="">
+            <img class="py-2 course__img" :src="course.img" alt="">
         </div>
         <div class="card-footer h-25">
             <p v-html="course.description" class="card-text"></p>
@@ -45,11 +45,21 @@ onMounted(() => {
   height: 350px;
   box-sizing: border-box;
   box-shadow: 0 0 20px 0 rgb(189, 241, 240);
+  transition: all 0.5s ease;
+
+  &:hover {
+    transform: rotate(-2deg);
+  }
 }
 
 .courses__title {
   font-size: 3rem;
   color: white;
   text-shadow: 3px 3px 3px #f5b80f95;
+}
+
+.course__img {
+  width: 50%;
+  height: auto;
 }
 </style>

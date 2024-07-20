@@ -16,13 +16,6 @@ import { useDark, useToggle } from "@vueuse/core";
         <div class="row">
           <div class="info my-5 mx-auto">
             <RouterView />
-            <!-- <router-view v-slot="{ Component }">
-
-                <transition name="route" mode="out-in">
-                  <component :is="Component" />
-                </transition>
- 
-            </router-view> -->
           </div>
         </div>
       </div>
