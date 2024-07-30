@@ -20,13 +20,6 @@ const router = useRouter();
       <span></span>
       Проекты
     </RouterLink>
-    <RouterLink class="nav-link" :to="{ name: 'posts' }" >
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            Статьи
-        </RouterLink>
     <RouterLink class="nav-link" :to="{ name: 'resume' }">
       <span></span>
       <span></span>

@@ -47,18 +47,19 @@ onMounted(() => {
       />
     </div>
 
-    <div class="row mt-5 text-white">
-      <p v-html="project.description"></p>
-    </div>
-    <div class="row">
-      <a
-        class="text-decoration-none project__url"
-        :href="project.url"
-        target="_blank"
-        >Исходный код</a
-      >
+    <div class="row my-5 text-white">
+      <div class="w-75 mx-auto position-relative">
+        <p v-html="project.description"></p>
+        <a
+          class="text-decoration-none project__url position-absolute bottom-0 end-0"
+          :href="project.url"
+          target="_blank"
+          >Исходный код</a
+        >
+      </div>
     </div>
   </div>
+
 </template>
 
 <style scoped>
@@ -69,7 +70,8 @@ onMounted(() => {
   cursor: pointer;
   box-sizing: border-box;
   padding: 10px;
-  transition: box-shadow 0.3s ease-in;
+  object-fit: cover;
+  transition: box-shadow 0.23s ease-in;
 
   &:hover {
     box-shadow: 0 0 10px #03e9f4, 0 0 20px #03e9f4, 0 0 30px #03e9f4,

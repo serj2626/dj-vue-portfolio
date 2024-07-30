@@ -2,27 +2,15 @@
 import StacklList from "../components/StackList.vue";
 </script>
 <template>
-  <div class="row col-10 mx-auto">
-    <div class="col-5">
-      <img
-        class="header-img text-center"
-        src="@/assets/home.png"
-        srcset="./img/photo@2x.jpg 2x"
-        alt="Photo"
-      />
-    </div>
-    <div class="col-4">
+  <div class="row bg-warning">
+    <img class="header-img col-6 w-75" src="@/assets/home.png" alt="Photo" />
+    <div class="col-4 gap-2">
       <div class="header-desc">
         <h1 class="header-title text-white">Сергей Бойцов</h1>
         <p class="header-text text-white">
           фрилансер, веб-разработчик,<br />
           создание сайтов
         </p>
-
-        <div class="header-btns">
-          <a href="#" class="btn">Портфолио</a>
-          <a href="#" class="btn-outline">Контакты</a>
-        </div>
       </div>
     </div>
   </div>
@@ -50,12 +38,12 @@ import StacklList from "../components/StackList.vue";
       </p>
 
       <div class="statistic text-center">
-        <div class="block text-white">
-          <h4>Количество статей</h4>
+        <div class="block">
+          <h4>Статей</h4>
           <span>4</span>
         </div>
-        <div class="block text-white">
-          <h4>Количество проектов</h4>
+        <div class="block">
+          <h4>Проектов</h4>
           <span>6</span>
         </div>
       </div>
@@ -67,6 +55,7 @@ import StacklList from "../components/StackList.vue";
 @keyframes stacks-scroll {
   from {
     opacity: 0;
+    scale: 0.5;
     transform: translateY(300px);
   }
 }
@@ -86,13 +75,66 @@ import StacklList from "../components/StackList.vue";
   display: flex;
   justify-content: center;
   align-items: center;
-  column-gap: 60px;
+  column-gap: 20px;
 }
 
 .statistic__title {
   text-shadow: 3px 3px 3px #f5e60f95;
 }
 
+/**  BLOCK STATISTIC  */
+@keyframes block-from-left {
+  from {
+    opacity: 0;
+    transform: translateX(-250px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes block-from-right {
+  from {
+    opacity: 0;
+    transform: translateX(250px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.statistic .block:nth-child(1) {
+  animation-name: block-from-left;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in;
+
+  view-timeline-name: --block-from-left;
+  animation-timeline: --block-from-left;
+  animation-range: 20% 40%;
+}
+
+.statistic .block:nth-child(2) {
+  animation-name: block-from-right;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in;
+
+  view-timeline-name: --block-from-right;
+  animation-timeline: --block-from-right;
+  animation-range: 20% 40%;
+}
+
+.statistic .block:nth-child(1):hover {
+  rotate: 5deg;
+    translate: 0 -10px;
+    background-color: rgb(64, 59, 59);
+}
+.statistic .block:nth-child(2):hover {
+  rotate: -5deg;
+    translate: 0 -10px;
+    background-color: rgb(64, 59, 59);
+}
 .block {
   display: flex;
   flex-direction: column;
@@ -102,23 +144,24 @@ import StacklList from "../components/StackList.vue";
   padding: 20px 10px;
   width: 250px;
   height: 150px;
+  color: #07bcc6;
   background-color: rgb(32, 31, 31);
   border-radius: 10px;
   box-sizing: border-box;
-  box-shadow: 0 0 10px white;
+  box-shadow: 0 0 20px white;
   transition: all 0.5s ease;
 
-  &:hover {
+  /* &:hover {
     rotate: 5deg;
     translate: 0 -10px;
     background-color: rgb(64, 59, 59);
-  }
+  } */
 }
 
 .block span {
   font-size: 36px;
   font-family: "Poppins", sans-serif;
-  color: #45b1ff;
+  color: #f0cc00;
   font-style: italic;
 }
 
@@ -138,7 +181,7 @@ import StacklList from "../components/StackList.vue";
 @keyframes start-show-aboutMe {
   0% {
     opacity: 0;
-    scale: 0.2;
+    scale: 0.7;
     color: white;
   }
 

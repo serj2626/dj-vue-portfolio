@@ -2,7 +2,7 @@
   <footer
     class="d-flex flex-wrap justify-content-around align-items-center py-3 my-4"
   >
-    <div class="col-md-4 d-flex align-items-center">
+    <div class="col-md-4 d-flex align-items-center gap-4">
       <a
         href="/"
         class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1"
@@ -14,7 +14,7 @@
       <span class="text-white fs-6">© 2024 Boytsov S.V   SPB</span>
     </div>
 
-    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex gap-2">
       <li class="ms-3">
         <a class="text-white" href="#"
           ><i class="fa-brands fa-telegram fa-xl" style="color: #74c0fc"></i
@@ -44,4 +44,12 @@
   </footer>
 </template>
 
-<style scoped></style>
+<style scoped>
+li {
+  transition: all .3s ease-in;
+
+  &:hover {
+    scale: 1.4;
+  }
+}
+</style>

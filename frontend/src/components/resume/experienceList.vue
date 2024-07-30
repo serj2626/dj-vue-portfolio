@@ -28,20 +28,19 @@ const updateShow = (id) => {
 <template>
   <p class="experience__title fs-1 text-white">Опыт работы</p>
 
-<div class="w-75 mx-auto my-5" v-for="obj in experiences" :key="obj.id">
-    <div class="experience d-flex align-items-center">
-
-        <p>{{ obj.vacancy_title }}</p>
+  <div class="w-75 mx-auto my-5" v-for="obj in experiences" :key="obj.id">
+    <div class="experience">
+      <p>{{ obj.vacancy_title }}</p>
 
       <div>
         <button
           v-if="showExperience === obj.id"
           @click="updateShow(obj.id)"
-          class="btn btn-outline-dark"
+          class="btn"
         >
           <i class="fa-solid fa-arrow-up fa-xl" style="color: #f5b80f"></i>
         </button>
-        <button v-else @click="updateShow(obj.id)" class="btn btn-outline-dark">
+        <button v-else @click="updateShow(obj.id)" class="btn">
           <i class="fa-solid fa-arrow-down fa-xl" style="color: #f5b80f"></i>
         </button>
       </div>
@@ -56,12 +55,13 @@ const updateShow = (id) => {
 <style scoped>
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.9s ease-in;
+  transition: all 0.5s ease-in;
 }
 
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+  transform: translateY(200px);
 }
 .experience__title {
   text-shadow: 3px 3px 3px #f5e60f95;
@@ -74,8 +74,6 @@ const updateShow = (id) => {
   padding-inline: 10px;
   font-size: 20px;
   color: white;
-  font-family: "Times New Roman", Times, serif;
-  background: #42494f;
   cursor: auto;
   height: 60px;
   transition: all 0.8s ease;
@@ -96,7 +94,5 @@ article {
   transition: all 0.8s ease;
 }
 
-button{
-  display: block;
-}
+
 </style>

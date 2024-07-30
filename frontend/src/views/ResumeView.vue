@@ -40,7 +40,6 @@ const getResume = async () => {
     user.phone = res.data.phone;
     user.github_url = res.data.github_url;
     about.value = res.data.about;
-    console.log(res.data);
   } catch (error) {
     toast.error("Что-то пошло не так");
   }
@@ -105,7 +104,7 @@ onMounted(() => getResume());
   margin: 30px;
   /* box-shadow: 0 0 10px #03e9f4, 0 0 20px #03e9f4, 0 0 30px #03e9f4,
   0 0 40px #03e9f4, 0 0 50px #03e9f4, 0 0 60px #03e9f4, 0 0 70px #03e9f4; */
-  box-shadow: 0 0 30px 20px #03e9f4;
+  box-shadow: 0 0 40px 10px #03e9f4;
   cursor: pointer;
 }
 
